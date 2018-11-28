@@ -1,0 +1,38 @@
+.navbar {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    /* border: 1px solid green; */
+}
+
+.menu {
+    width: 20%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav {
+    color: rgb(255, 249, 207);
+    /* font-family: 'Merienda', cursive; */
+    /* font-family: 'Arima Madurai', cursive; */
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 25px;
+    text-decoration: none;
+}
+.title {
+    justify-content: center;
+    /* border: 1px solid black; */
+    height: 50px;
+    width: 100%;
+    color: rgb(255, 251, 203);
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 38px;
+
+
+    /* text-align: center; */
+}
+.nav:hover {
+    color: rgb(32, 32, 32);
+}

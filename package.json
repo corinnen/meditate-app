@@ -2,13 +2,24 @@
   "name": "meditate-app",
   "version": "0.1.0",
   "private": true,
+  "main": "server/index.js",
+  "proxy": "http://localhost:6000",
+  "nodemonConfig": {
+    "ext": "js,sql",
+    "ignore": [
+      "src/*",
+      "public/*"
+    ]
+  },
   "dependencies": {
     "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "massive": "^5.5.3",
+    "pretty-ms": "^4.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
