@@ -1,23 +1,25 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import './Header.css'
-
+import axios from 'axios'
+import {connect} from 'react-redux'
+import {userLoggedOut} from '../../redux/reducer'
 
 class Header extends Component {
-    constructor() {
-        super()
-
-        this.state = {
-            isAuthenticated: false
-        }
+    logout = () => {
+        axios.get('/auth/logout').then(response => {
+            this.props.userLoggedOut()
+            this.props.history.push('/')
+        })
     }
+
     render(){
-    return this.state.isAuthenticated ?
+    return (this.props.isAuthenticated ?
         <div className="navbar">
              <span className="title">My App</span>
              <div className="menu">
-                <Link className="nav" to="/main">Main</Link>
-                <Link className="nav" to="/main">Logout</Link>
+                {/* <Link className="nav" to="/main">Main</Link> */}
+                <div onClick={this.logout} >Logout</div>
             </div>    
         </div>
             : <div className="navbar">
@@ -28,8 +30,15 @@ class Header extends Component {
 
 
         </div>
+    )
     }
     
 }
+function mapStateToProps(state) {
+    let{isAuthenticated} = state
+    return {
+        isAuthenticated
+    }
+}
 
-export default Header
+export default withRouter(connect (mapStateToProps, {userLoggedOut})(Header))

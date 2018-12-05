@@ -1,5 +1,11 @@
 import React, {Component} from 'react'
-const ms = require ('pretty-ms')
+// import ms from 'pretty-ms'
+import axios from 'axios'
+import { connect } from 'react-redux'
+import { addTime } from '../../redux/reducer';
+// import moment from 'moment'
+// import momentDurationFormatSetup from 'moment-duration-format'
+
 
 class Timer extends Component{
     constructor(props){
@@ -7,20 +13,24 @@ class Timer extends Component{
             this.state ={
                 time: 0,
                 start: 0,
-                isOn: false
+                isOn: false,
+                setTime: 600000
             }
         
         this.startTimer=this.startTimer.bind(this)
         this.stopTimer=this.stopTimer.bind(this)
         this.resetTimer=this.resetTimer.bind(this)
+        this.handleSetTime=this.handleSetTime.bind(this)
+        this.handleEndTime=this.handleEndTime.bind(this)
+        this.handleFinish=this.handleFinish.bind(this)
     }
 
 
     startTimer(){
         this.setState({
             time: this.state.time,
-            start: Date.now() - this.state.time, 
-            isOn: true
+            start: Date.now(), 
+            isOn: true,
         })
         this.timer = setInterval( () => this.setState({
             time: Date.now() - this.state.start
@@ -39,6 +49,27 @@ class Timer extends Component{
         console.log("reset")
     }
 
+    handleSetTime(e){
+        this.setState({
+            setTime: e.target.value
+        })
+    }
+    handleEndTime(){
+       this.stopTimer()
+       alert ('Time Complete')
+        console.log('words')
+    }
+    handleFinish(){
+        console.log(this.state.time)
+        axios.post('/api/time', {time: this.state.time}).then(results => {
+            console.log(results.data)
+            this.props.addTime(results.data)
+            this.setState({
+                time: 0
+            })
+        })
+    }
+
     render(){
         let start = (this.state.time === 0) ?
             <button onClick={this.startTimer}>start</button> :
@@ -52,33 +83,39 @@ class Timer extends Component{
             <button onClick={this.resetTimer}>reset</button> :
             null
         
-        let resume = (this.state.time !== 0 && !this.state.isOn) ?
+        let resume = (this.state.time !== 0 && !this.state.isOn && this.state.time < this.state.setTime) ?
             <button onClick={this.startTimer} >resume</button> :
             null
-   
-            //set timer with drop down bar
 
+
+        if(this.state.time >= this.state.setTime && this.state.isOn)this.handleEndTime()
+
+        console.log(this.state.setTime)
+      
         return (
             <div>
-                <h3>timer: {ms(this.state.time)} </h3>
+
+                <h3>timer: {this.state.time} </h3>
                 {start}
                 {resume}
                 {stop}
                 {reset}
                 <br />
-                <button>Finish</button> 
+                <button onClick={this.handleFinish} >Finish</button> 
                     {/* and log time, also add play/stop buttons */}
                 <br />
                 <br />
-                <select>
-                    <option>5 minutes</option>
-                    <option>10 minutes</option>
-                    <option>15 minutes</option>
-                    <option>20 minutes</option>
-                    <option>30 minutes</option>
-                    <option>40 minutes</option>
-                    <option>50 minutes</option>
-                    <option>60 minutes</option>
+                <select onChange={this.handleSetTime} >
+                    <option>set time</option>
+                    <option value={5000}>5 seconds</option>
+                    <option value={300000}>5 minutes</option>
+                    <option value={600000} >10 minutes</option>
+                    <option value={900000} >15 minutes</option>
+                    <option value={1200000} >20 minutes</option>
+                    <option value={1800000} >30 minutes</option>
+                    <option value={2400000} >40 minutes</option>
+                    <option value={3000000} >50 minutes</option>
+                    <option value={3600000} >60 minutes</option>
 
                 </select>
                     
@@ -87,4 +124,5 @@ class Timer extends Component{
     }
 }
 
-export default Timer
+
+export default connect (null, {addTime})(Timer)

@@ -19,6 +19,8 @@
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "massive": "^5.5.3",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2",
     "pretty-ms": "^4.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",

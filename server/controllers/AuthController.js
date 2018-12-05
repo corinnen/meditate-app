@@ -5,7 +5,6 @@ module.exports = {
         try{
             const db = req.app.get('db')
             const {name, email, password} = req.body
-            // console.log(password)
             
             let userResponse = await db.getUserByEmail(email)
             if (userResponse[0]){
@@ -38,7 +37,6 @@ module.exports = {
 
         let userResponse = await db.getUserByEmail(email)
         let user = userResponse[0]
-        console.log(user)
         
         if (!user) {
             res.status(401).send('email not found')
