@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { userLoggedIn } from '../../redux/reducer';
 import {Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+
 
 class Register extends Component {
   constructor(){
@@ -66,6 +68,8 @@ class Register extends Component {
         <br />
         <button onClick={this.handleClick}>Submit</button>
         <br />
+        <div>Or log in <Link to="/">here</Link></div> 
+
         {this.state.error}
       </div>
     );

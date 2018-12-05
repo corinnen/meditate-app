@@ -14,6 +14,7 @@ class Header extends Component {
     }
 
     render(){
+        console.log(this.props)
     return (this.props.isAuthenticated ?
         <div className="navbar">
              <span className="title">My App</span>
@@ -25,7 +26,7 @@ class Header extends Component {
             : <div className="navbar">
                 <span className="title">My App</span>
                 <div className="menu">
-                    <Link className="nav" to="/">Login</Link>
+                    {this.props.location.pathname !=="/" && <Link className="nav" to="/">Login</Link>}
                 </div>    
 
 

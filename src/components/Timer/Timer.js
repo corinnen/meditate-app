@@ -3,9 +3,9 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { addTime } from '../../redux/reducer';
-// import moment from 'moment'
-// import momentDurationFormatSetup from 'moment-duration-format'
-
+import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
+import ding from '../../Singing-bowl-sound.mp3'
 
 class Timer extends Component{
     constructor(props){
@@ -13,44 +13,29 @@ class Timer extends Component{
             this.state ={
                 time: 0,
                 timeDisplay: 0,
-                seconds: 0,
-                minutes: 0,
-                hours: 0,
-                format: "s",
                 start: 0,
                 isOn: false,
-                setTime: 600
+                setTime: 600,
+                ding: ""
             }
         
         this.startTimer=this.startTimer.bind(this)
         this.stopTimer=this.stopTimer.bind(this)
         this.resetTimer=this.resetTimer.bind(this)
         this.handleSetTime=this.handleSetTime.bind(this)
-        this.handleEndTime=this.handleEndTime.bind(this)
         this.handleFinish=this.handleFinish.bind(this)
     }
-    formatTime(time){
-        if(time > 59) this.setState({
-            format: "m",
-            timeDisplay: Math.floor(time/60)
-        })
-        if(time > 3599)
-        if(time > 59) this.setState({
-            format: "h"
-        })
-    }
-    // startTimer(){
-    //     this.setState({
-    //         time: this.state.time,
-    //         start: Date.now(), 
-    //         isOn: true,
+    // formatTime(time){
+    //     if(time > 59) this.setState({
+    //         format: "m",
+    //         timeDisplay: Math.floor(time/60)
     //     })
-    //     console.log(Date.now(), this.state.start, this.state.time)
-    //     this.timer = setInterval( () => this.setState({
-    //         time: Date.now() - this.state.start
-    //     }), 1000)
-    //     console.log("start")
+    //     if(time > 3599)
+    //     if(time > 59) this.setState({
+    //         format: "h"
+    //     })
     // }
+
     startTimer(){
         let startButton = document.getElementById("startButton");
         if(startButton) document.getElementById("startButton").style.display="none";
@@ -65,7 +50,7 @@ class Timer extends Component{
 
 
     stopTimer(){
-        this.setState({ isOn: false})
+        this.setState({ isOn: false, ding})
         clearInterval(this.timer)
         console.log("stop")
     }
@@ -80,11 +65,9 @@ class Timer extends Component{
             setTime: e.target.value
         })
     }
-    handleEndTime(){
-       this.stopTimer()
-       alert ('Time Complete')
-        console.log('words')
-    }
+    
+
+  
     handleFinish(){
         console.log(this.state.time)
         axios.post('/api/time', {time: this.state.time}).then(results => {
@@ -118,20 +101,22 @@ class Timer extends Component{
             <button onClick={this.handleFinish} >Finish</button> :
             null
         
-
-        if(this.state.time >= this.state.setTime && this.state.isOn)this.handleEndTime()
+        if(this.state.time >= this.state.setTime && this.state.isOn)
+        {
+            this.stopTimer()
+        }
       
         return (
             <div>
-
-                <h3>timer: {this.state.time}{this.state.format} </h3>
+                {/* <i class="far fa-clock"></i> */}
+                <h3>timer: {moment.duration(this.state.time, "seconds").format("h:mm:ss")}</h3>
                 {start}
                 {resume}
                 {stop}
                 {reset}
                 <br />
                 {finish}
-               
+                <audio src={this.state.ding} autoPlay />
                 <br />
                 <br />
                 <select onChange={this.handleSetTime} >

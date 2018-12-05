@@ -20,7 +20,7 @@ module.exports = {
         try{
             const db = req.app.get('db')
             let {id} = req.session.user
-            console.log(id)
+            // console.log(id)
             
             let timeResponse = await db.getTime(id)
 
@@ -36,7 +36,6 @@ module.exports = {
             const db = req.app.get('db')
             let {id} = req.params
             let userID = req.session.user.id
-            console.log(req.session)
           
             let time = await db.deleteTime([id, userID])
             res.send(time)
@@ -50,10 +49,10 @@ module.exports = {
         try{
             const db = req.app.get('db')
             let {id} = req.params
-            let { timestamp, length_of_time} = req.body
+            let { length_of_time} = req.body
             let userID = req.session.user.id
 
-            let editTime = await db.updateTime([id, timestamp, length_of_time, userID])
+            let editTime = await db.updateTime([id, length_of_time, userID])
             res.send(editTime)
         } catch (error) {
             console.log('cannot update time', error)
