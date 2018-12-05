@@ -30,7 +30,7 @@ class TimeCard extends Component {
         console.log(date)
         let timestamp = new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}).format(date)
         let timestamp2 = new Intl.DateTimeFormat('en-US', {hour: '2-digit', minute: '2-digit'}).format(date)
-        let length_of_time = moment.duration(time.length_of_time, "seconds").format("h:mm");
+        // let length_of_time = moment.duration(time.length_of_time, "seconds").format("h:mm");
         
         return( 
 

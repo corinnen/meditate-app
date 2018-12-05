@@ -3,7 +3,7 @@ import Timer from '../Timer/Timer'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import {addTime} from '../../redux/reducer';
-import moment from 'moment'
+import moment from 'moment';
 import momentDurationFormatSetup from 'moment-duration-format'
 
 
@@ -50,24 +50,34 @@ class Main extends Component{
     
 
     render(){
-        
+
         let displayTime= this.props.timeLog.map((time, index) => {
             
             let date = new Date(time.timestamp)
             let timestamp = new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}).format(date)
             let timestamp2 = new Intl.DateTimeFormat('en-US', {hour: '2-digit', minute: '2-digit'}).format(date)
-            let length_of_time = moment.duration(time.length_of_time, "seconds").format("h:mm");
-                
-                return <div key={index}>{timestamp} &nbsp;  {timestamp2}  &nbsp; ⌛️ &nbsp;   {length_of_time}
-                            &nbsp; 
-                            <div>
-                                
-                                <input value={length_of_time} type="text" onChange={this.handleTimeChange}></input>
-                            </div>
-                            <button onClick={()=> {this.editTime(time.id)}} >+</button>
-                            &nbsp; <button onClick={ ()=> {this.deleteTime(time.id)}} >delete</button>
+        
+                return (
+                    <div>
+                        <div key={index}>
+                            {timestamp} &nbsp; 
+                            {timestamp2}&nbsp; ⌛️ &nbsp;   
+                            {time.length_of_time} &nbsp; 
+                      
+                              <input value={time.length_of_time} type="text" onChange={this.handleTimeChange}></input>
+                                <button onClick={()=> {
+                                    this.editTime(time.id);this.toggleEdit()}} >+</button> &nbsp; 
+                                <button onClick={this.toggleEdit}>Remove</button>
                         </div>
-            })
+                        <div>
+                            
+                            <button onClick={ ()=> {this.deleteTime(time.id)}} >delete</button>
+                        </div>
+
+                    </div>   
+        )   
+        })
+
     
     return (
         <div>
@@ -89,3 +99,5 @@ function MapStateToProps(state) {
 
 
 export default connect (MapStateToProps, {addTime})(Main)
+
+        

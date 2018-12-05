@@ -12,9 +12,14 @@ class Timer extends Component{
         super(props)
             this.state ={
                 time: 0,
+                timeDisplay: 0,
+                seconds: 0,
+                minutes: 0,
+                hours: 0,
+                format: "s",
                 start: 0,
                 isOn: false,
-                setTime: 600000
+                setTime: 600
             }
         
         this.startTimer=this.startTimer.bind(this)
@@ -24,19 +29,40 @@ class Timer extends Component{
         this.handleEndTime=this.handleEndTime.bind(this)
         this.handleFinish=this.handleFinish.bind(this)
     }
-
-
+    formatTime(time){
+        if(time > 59) this.setState({
+            format: "m",
+            timeDisplay: Math.floor(time/60)
+        })
+        if(time > 3599)
+        if(time > 59) this.setState({
+            format: "h"
+        })
+    }
+    // startTimer(){
+    //     this.setState({
+    //         time: this.state.time,
+    //         start: Date.now(), 
+    //         isOn: true,
+    //     })
+    //     console.log(Date.now(), this.state.start, this.state.time)
+    //     this.timer = setInterval( () => this.setState({
+    //         time: Date.now() - this.state.start
+    //     }), 1000)
+    //     console.log("start")
+    // }
     startTimer(){
+        let startButton = document.getElementById("startButton");
+        if(startButton) document.getElementById("startButton").style.display="none";
         this.setState({
-            time: this.state.time,
-            start: Date.now(), 
-            isOn: true,
+            isOn: true
         })
         this.timer = setInterval( () => this.setState({
-            time: Date.now() - this.state.start
+            time: this.state.time + 1
         }), 1000)
         console.log("start")
     }
+
 
     stopTimer(){
         this.setState({ isOn: false})
@@ -65,14 +91,15 @@ class Timer extends Component{
             console.log(results.data)
             this.props.addTime(results.data)
             this.setState({
-                time: 0
+                time: 0,
+                isOn: false
             })
         })
     }
 
     render(){
         let start = (this.state.time === 0) ?
-            <button onClick={this.startTimer}>start</button> :
+            <button id="startButton" onClick={this.startTimer}>start</button> :
             null
 
         let stop = (this.state.isOn) ?
@@ -86,36 +113,38 @@ class Timer extends Component{
         let resume = (this.state.time !== 0 && !this.state.isOn && this.state.time < this.state.setTime) ?
             <button onClick={this.startTimer} >resume</button> :
             null
-
+        
+        let finish  = (this.state.time !== 0 && !this.state.isOn) ?
+            <button onClick={this.handleFinish} >Finish</button> :
+            null
+        
 
         if(this.state.time >= this.state.setTime && this.state.isOn)this.handleEndTime()
-
-        console.log(this.state.setTime)
       
         return (
             <div>
 
-                <h3>timer: {this.state.time} </h3>
+                <h3>timer: {this.state.time}{this.state.format} </h3>
                 {start}
                 {resume}
                 {stop}
                 {reset}
                 <br />
-                <button onClick={this.handleFinish} >Finish</button> 
-                    {/* and log time, also add play/stop buttons */}
+                {finish}
+               
                 <br />
                 <br />
                 <select onChange={this.handleSetTime} >
                     <option>set time</option>
-                    <option value={5000}>5 seconds</option>
-                    <option value={300000}>5 minutes</option>
-                    <option value={600000} >10 minutes</option>
-                    <option value={900000} >15 minutes</option>
-                    <option value={1200000} >20 minutes</option>
-                    <option value={1800000} >30 minutes</option>
-                    <option value={2400000} >40 minutes</option>
-                    <option value={3000000} >50 minutes</option>
-                    <option value={3600000} >60 minutes</option>
+                    <option value={5}>5 seconds</option>
+                    <option value={300}>5 minutes</option>
+                    <option value={600} >10 minutes</option>
+                    <option value={900} >15 minutes</option>
+                    <option value={1200} >20 minutes</option>
+                    <option value={1800} >30 minutes</option>
+                    <option value={2400} >40 minutes</option>
+                    <option value={3000} >50 minutes</option>
+                    <option value={3600} >60 minutes</option>
 
                 </select>
                     
