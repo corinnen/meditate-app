@@ -29,7 +29,7 @@ class Login extends Component {
 
   handleClick(){
     axios.post('/auth/login', this.state).then(response => {
-     //  console.log(response)
+      console.log('login', response.data)
       let user = response.data
       this.props.userLoggedIn(user)
     }).catch(err => {
@@ -42,6 +42,7 @@ class Login extends Component {
 
 
   render() {
+    console.log('asdfsf', this.props.isAuthenticated)
     return (this.props.isAuthenticated ?
     
       <Redirect to="/main" /> :

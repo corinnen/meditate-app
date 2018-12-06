@@ -21,15 +21,16 @@ class Main extends Component{
     }
  
     componentDidMount(){
-        axios.get('/api/time').then(results => {
-            this.props.addTime(results.data)
-        })
         axios.get('/auth/user').then(results => {
             if(!results.data.name){
                 this.props.history.push("/")
             }else{
-            this.setState({name:results.data.name})}
+            axios.get('/api/time').then(results => {
+                this.props.addTime(results.data)
+            })
+            this.setState({name:results.data.name})
             this.props.userLoggedIn(results.data)
+        }
         })
     }
 

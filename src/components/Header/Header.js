@@ -6,6 +6,16 @@ import {connect} from 'react-redux'
 import {userLoggedOut} from '../../redux/reducer'
 
 class Header extends Component {
+    // componentDidMount() {
+    //     axios.get('/auth/user').then(results => {
+    //         if(!results.data.name){
+    //             this.props.history.push("/")
+    //         }else{
+    //         this.setState({name:results.data.name})
+    //     }
+    //         this.props.userLoggedIn(results.data)
+    //     })
+    // }
     logout = () => {
         axios.get('/auth/logout').then(response => {
             this.props.userLoggedOut()
@@ -14,7 +24,7 @@ class Header extends Component {
     }
 
     render(){
-        console.log(this.props)
+        console.log(this.props.isAuthenticated)
     return (this.props.isAuthenticated ?
         <div className="navbar">
              <span className="title">Balance</span>
