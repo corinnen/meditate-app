@@ -24,6 +24,7 @@ class Timer extends Component{
         this.resetTimer=this.resetTimer.bind(this)
         this.handleSetTime=this.handleSetTime.bind(this)
         this.handleFinish=this.handleFinish.bind(this)
+       this.handleEndTime=this.handleEndTime.bind(this)
     }
     // formatTime(time){
     //     if(time > 59) this.setState({
@@ -37,8 +38,6 @@ class Timer extends Component{
     // }
 
     startTimer(){
-        let startButton = document.getElementById("startButton");
-        if(startButton) document.getElementById("startButton").style.display="none";
         this.setState({
             isOn: true
         })
@@ -50,7 +49,7 @@ class Timer extends Component{
 
 
     stopTimer(){
-        this.setState({ isOn: false, ding})
+        this.setState({ isOn: false})
         clearInterval(this.timer)
         console.log("stop")
     }
@@ -65,7 +64,10 @@ class Timer extends Component{
             setTime: e.target.value
         })
     }
-    
+    handleEndTime(){
+        this.stopTimer()
+        this.setState({ding})
+    }
 
   
     handleFinish(){
@@ -81,7 +83,7 @@ class Timer extends Component{
     }
 
     render(){
-        let start = (this.state.time === 0) ?
+        let start = (this.state.time === 0 && !this.state.isOn) ?
             <button id="startButton" onClick={this.startTimer}>start</button> :
             null
 
@@ -103,12 +105,12 @@ class Timer extends Component{
         
         if(this.state.time >= this.state.setTime && this.state.isOn)
         {
-            this.stopTimer()
+            this.handleEndTime()
         }
       
         return (
             <div>
-                {/* <i class="far fa-clock"></i> */}
+                <i class="far fa-clock"></i>
                 <h3>timer: {moment.duration(this.state.time, "seconds").format("h:mm:ss")}</h3>
                 {start}
                 {resume}

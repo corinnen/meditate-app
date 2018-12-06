@@ -44,6 +44,7 @@ class TimeLog extends Component {
                                 this.props.editTime(time.id, this.state.timeLength);this.toggleEdit()}}>
                                 add</button> &nbsp; 
                             <button onClick={ ()=> {this.props.deleteTime(time.id);this.toggleEdit()}}>delete</button>
+                            <button onClick={this.toggleEdit}>x</button>
                     </div>
                     ) :
                     (
@@ -51,7 +52,7 @@ class TimeLog extends Component {
                         {timestamp} &nbsp; 
                         {timestamp2}&nbsp; | &nbsp;   
                         {moment.duration(time.length_of_time, "seconds").format("h[h]mm[m]ss[s] ")}  &nbsp; 
-                        <button onClick={this.toggleEdit}>Edit</button>
+                       <i onClick={this.toggleEdit} className="far fa-edit"></i>
                     </div>
 
                         )
