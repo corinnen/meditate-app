@@ -19,7 +19,6 @@ class Header extends Component {
         <div className="navbar">
              <span className="title">Balance</span>
              <div className="menu">
-                {/* <Link className="nav" to="/main">Main</Link> */}
                 <div onClick={this.logout} >Logout</div>
             </div>    
         </div>

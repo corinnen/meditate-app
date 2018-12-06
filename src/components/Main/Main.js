@@ -9,7 +9,7 @@ import TimeLog from '../timeLog/TimeLog'
 
 
 
-class Home extends Component{
+class Main extends Component{
     constructor(){
         super()
         this.state= {
@@ -64,14 +64,13 @@ class Home extends Component{
            
     
     return (
-        <div className="Home">
+        <div className="Main">
             <h1>Welcome, {this.state.name}</h1>
             <Timer />
             <div>{displayTime}
             
             </div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/lecITZkWqzg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/9jRtpMKLsts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        </div>
              )
 }
 }
@@ -85,6 +84,6 @@ function MapStateToProps(state) {
 
 
 
-export default connect (MapStateToProps, {addTime, userLoggedIn})(Home)
+export default connect (MapStateToProps, {addTime, userLoggedIn})(Main)
 
         
