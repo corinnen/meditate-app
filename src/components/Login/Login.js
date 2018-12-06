@@ -5,6 +5,8 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { userLoggedIn } from '../../redux/reducer';
 import {Redirect} from 'react-router-dom'
+// import Header from './components/Header/Header'
+
 
 
 class Login extends Component {
@@ -41,8 +43,9 @@ class Login extends Component {
 
   render() {
     return (this.props.isAuthenticated ?
+    
       <Redirect to="/main" /> :
-      <div>
+      <div className="login">
         <h1>Login</h1>
         <input onChange={(e) => this.handleEmailInput(e.target.value)} type="text" placeholder="email"></input>
           <br />

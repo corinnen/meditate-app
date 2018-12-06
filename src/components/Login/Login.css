@@ -1,3 +1,17 @@
 .regButton {
     text-decoration: none;
+
+}
+.login {
+        text-align: center;
+        
+        background: url("../../jared-rice-388260-unsplash.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        
 }

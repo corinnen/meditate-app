@@ -1,9 +1,11 @@
+
 .navbar {
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: flex-end;
-    /* border: 1px solid green; */
+    background-color: transparent;
+    border: 1px solid green;
 }
 
 .menu {
@@ -11,6 +13,8 @@
     /* border: 1px solid black; */
     display: flex;
     justify-content: space-around;
+    background-color: transparent;
+
 }
 
 .nav {
@@ -20,6 +24,8 @@
     font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 25px;
     text-decoration: none;
+    background-color: transparent;
+
 }
 .title {
     justify-content: center;
@@ -29,6 +35,7 @@
     color: rgb(255, 251, 203);
     font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 38px;
+    background-color: transparent;
 
 
     /* text-align: center; */

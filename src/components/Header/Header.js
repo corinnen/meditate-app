@@ -17,14 +17,14 @@ class Header extends Component {
         console.log(this.props)
     return (this.props.isAuthenticated ?
         <div className="navbar">
-             <span className="title">My App</span>
+             <span className="title">Balance</span>
              <div className="menu">
                 {/* <Link className="nav" to="/main">Main</Link> */}
                 <div onClick={this.logout} >Logout</div>
             </div>    
         </div>
             : <div className="navbar">
-                <span className="title">My App</span>
+                <span className="title">Balance</span>
                 <div className="menu">
                     {this.props.location.pathname !=="/" && <Link className="nav" to="/">Login</Link>}
                 </div>    

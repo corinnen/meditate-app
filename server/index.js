@@ -4,12 +4,13 @@ const massive = require ('massive')
 const session = require ('express-session')
 const ac = require ('./controllers/AuthController')
 const tc = require ('./controllers/timeLogController')
-
+const path = require ('path')
 const app = express()
 require ('dotenv').config()
 
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env
 app.use(bodyParser.json())
+app.use( express.static( `${__dirname}/../build` ) );
 
 massive(CONNECTION_STRING).then( db => {
     app.set('db', db) 
