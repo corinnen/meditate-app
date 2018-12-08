@@ -1,45 +1,60 @@
 
+
 .navbar {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    background-color: transparent;
+    color: rgb(101, 97, 85);
+    /* padding: 0;
+    margin: 0; */
+    /* list-style: none; */
+    display: block;
+    /* align-items: baseline; */
+    /* justify-content: center; */
+    /* align-content: space-around; */
+    height: 75px;
+    width: 100%;
+    font-family: 'Montserrat Alternates', sans-serif;
+    /* margin-left: 25%;; */
+    font-size: 50px;
     border: 1px solid green;
+    padding-top: 10px;
 }
-
-.menu {
-    width: 20%;
-    /* border: 1px solid black; */
-    display: flex;
-    justify-content: space-around;
-    background-color: transparent;
-
+.navbar .blur {
+    z-index: 0;
+    filter: blur(3px);
+    -webkit-filter: blur(20px);
 }
-
-.nav {
-    color: rgb(255, 249, 207);
-    /* font-family: 'Merienda', cursive; */
-    /* font-family: 'Arima Madurai', cursive; */
-    font-family: 'Fira Sans Condensed', sans-serif;
-    font-size: 25px;
-    text-decoration: none;
-    background-color: transparent;
-
+#logout {
+   
+    font-size: 20px;
+    /* padding-right: 15px; */
+    /* padding-top: 24px; */    
+    float: right;
+    margin-top: 10px;
+    margin-right: 50px;
 }
 .title {
-    justify-content: center;
-    /* border: 1px solid black; */
-    height: 50px;
-    width: 100%;
-    color: rgb(255, 251, 203);
-    font-family: 'Fira Sans Condensed', sans-serif;
-    font-size: 38px;
-    background-color: transparent;
-
-
-    /* text-align: center; */
+    float: center;
+    letter-spacing: 2px;
+    padding-top: 20px;
+    margin-top: 50px;
 }
-.nav:hover {
+
+@media (max-width: 320px){
+    .title {
+        font-size: 40px;
+    }
+    #logout {
+        margin-right: 10px;
+        font-size: 12px;
+    }
+}
+
+
+#logout:hover {
     color: rgb(32, 32, 32);
+    font-weight: 600;
 }
+
+
+
+
+

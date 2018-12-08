@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import moment from 'moment'
 // import momentDurationFormatSetup from 'moment-duration-format'
+import './TimeLog.css'
 
 class TimeLog extends Component {
     constructor(){
@@ -33,7 +34,7 @@ class TimeLog extends Component {
         
         return( 
 
-             <div>
+             <div className="timeContainer" >
                  {this.state.edit ?
                 (
                     <div>

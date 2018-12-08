@@ -6,6 +6,10 @@ import {addTime, userLoggedIn} from '../../redux/reducer';
 import moment from 'moment';
 import momentDurationFormatSetup from 'moment-duration-format'
 import TimeLog from '../timeLog/TimeLog'
+import Header from '../Header/Header'
+import './Main.css'
+import Quote from '../Quote';
+
 
 
 
@@ -15,7 +19,8 @@ class Main extends Component{
         this.state= {
             name: "",
             edit: false,
-            timeLength: ""
+            timeLength: "",
+            hours: new Date().getHours()
         }
       
     }
@@ -25,12 +30,12 @@ class Main extends Component{
             if(!results.data.name){
                 this.props.history.push("/")
             }else{
-            axios.get('/api/time').then(results => {
-                this.props.addTime(results.data)
-            })
-            this.setState({name:results.data.name})
-            this.props.userLoggedIn(results.data)
-        }
+                axios.get('/api/time').then(results => {
+                    this.props.addTime(results.data)
+                })
+                this.setState({name:results.data.name})
+                this.props.userLoggedIn(results.data)
+            }   
         })
     }
 
@@ -47,32 +52,44 @@ class Main extends Component{
             this.props.addTime(results.data)
         })
     }
+    
 
 
     render(){
 
         let displayTime= this.props.timeLog.map((time, index) => {
-            return (
-                <TimeLog 
-                key={index}
-                deleteTime={this.deleteTime}
-                editTime={this.editTime}
-                time={time}
-
-                />
+            return (     
+                    <TimeLog 
+                    key={index}
+                    deleteTime={this.deleteTime}
+                    editTime={this.editTime}
+                    time={time}
+                    />
             )
         })
-           
     
     return (
-        <div className="Main">
-            <h1>Welcome, {this.state.name}</h1>
-            <Timer />
-            <div>{displayTime}
-            
+        <div>
+            <Header />
+            <div className="Main">
+                <div className="no-blur">  
+                    <h1 className="greeting">{this.state.hours < 12 ? <span>Good Morning,</span> : this.state.hours > 17 ? <span>Good Evening, </span> : <span>Good Afternoon, </span> }
+                    &nbsp; {this.state.name}</h1>
+                </div>    
+                <Timer />
+                <div className="no-blur"> 
+                    <div>{displayTime}
+                    
+                    </div>
+                    <div>
+                        <Quote />
+                    </div>
+                    <iframe title="playlist" width="200" height="100" src="https://www.youtube.com/embed/y8NDRElMWwk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                </div>  
             </div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/9jRtpMKLsts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        </div>
-             )
+        </div>
+            
+        )
 }
 }
 

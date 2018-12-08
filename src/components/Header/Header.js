@@ -4,18 +4,10 @@ import './Header.css'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {userLoggedOut} from '../../redux/reducer'
+import './Header.css'
 
 class Header extends Component {
-    // componentDidMount() {
-    //     axios.get('/auth/user').then(results => {
-    //         if(!results.data.name){
-    //             this.props.history.push("/")
-    //         }else{
-    //         this.setState({name:results.data.name})
-    //     }
-    //         this.props.userLoggedIn(results.data)
-    //     })
-    // }
+
     logout = () => {
         axios.get('/auth/logout').then(response => {
             this.props.userLoggedOut()
@@ -24,21 +16,18 @@ class Header extends Component {
     }
 
     render(){
-        console.log(this.props.isAuthenticated)
+        // console.log(this.props.isAuthenticated)
     return (this.props.isAuthenticated ?
         <div className="navbar">
-             <span className="title">Balance</span>
-             <div className="menu">
-                <div onClick={this.logout} >Logout</div>
-            </div>    
+            <span className="title">Balance</span>
+            <div id="logout" onClick={this.logout} >Logout</div>
+              
         </div>
-            : <div className="navbar">
-                <span className="title">Balance</span>
-                <div className="menu">
-                    {this.props.location.pathname !=="/" && <Link className="nav" to="/">Login</Link>}
-                </div>    
-
-
+    :   <div className="navbar">
+            <span className="title">Balance</span>
+            <div>
+                {this.props.location.pathname !=="/" && <Link className="nav" to="/">Login</Link>}
+            </div>    
         </div>
     )
     }

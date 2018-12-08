@@ -20,7 +20,6 @@ module.exports = {
         try{
             const db = req.app.get('db')
             let {id} = req.session.user
-            // console.log(id)
             
             let timeResponse = await db.getTime(id)
 

@@ -1,8 +1,8 @@
-.regButton {
+/* .regButton {
     text-decoration: none;
 
-}
-.login {
+} */
+/* .login {
         text-align: center;
         
         background: url("../../jared-rice-388260-unsplash.jpg");
@@ -14,4 +14,93 @@
         margin: 0;
         padding: 0;
         
+} */
+/* .wrapper {
+    height: 100vh;
+} */
+.section {
+    position: relative;
+    width: 100%;
+}
+
+.parallax {
+    background-image: url("../../jared-rice-388260-unsplash.jpg");
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: rgb( 66, 64, 52);
+    font-family: 'Montserrat Alternates', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* justify-content: space-around; */
+    color: rgb(254, 239, 234);
+    align-items: center;
+
+    /* padding-top: 200px; */
+
+    align-content: center;
+}
+#title {
+    color: rgb(254, 239, 234);
+    background-color:rgb(0, 4, 3);
+    opacity: 0.7;
+    align-content: center;
+    height: 75px;
+    width: 325px;
+    padding-top:5px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    letter-spacing: 2px;
+    /* margin-left: 25%;; */
+    margin-bottom:200px;
+    font-size: 65px;
+
+    /* justify-content: center; */
+}
+#quote {
+    font-size: 30px;
+    margin-bottom: 20px;
+    padding-top: 30px;
+}
+#author {
+    font-size: 16px;
+    padding-bottom: 75px;
+}
+.static {
+    height: 500px;
+    background-color: rgb( 230, 228, 229);
+    display: flex;
+    justify-content: center;
+
+
+}
+.bg1 {
+    background-image: url("../../jared-rice-388260-unsplash.jpg");
+
+}
+
+.bg2 {
+    background-image: url("../../ian-keefe-354195-unsplash.jpg");
+    height: 530px;
+}
+.loginContainer{
+    display: flex;
+    height: 40vh;
+    border: 1px solid gray;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+    width: 30vh;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    /* font-family: 'Merienda', cursive; */
+    /* font-family: 'Montserrat Alternates', sans-serif; */
+    /* font-family: 'El Messiri', sans-serif; */
+    /* font-family: 'Arima Madurai', cursive; */
+    /* font-family: 'Kurale', serif;  */
+
+
 }

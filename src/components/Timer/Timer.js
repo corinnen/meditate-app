@@ -6,6 +6,7 @@ import { addTime } from '../../redux/reducer';
 import moment from 'moment'
 import momentDurationFormatSetup from 'moment-duration-format'
 import ding from '../../Singing-bowl-sound.mp3'
+import '../Main/Main.css'
 
 class Timer extends Component{
     constructor(props){
@@ -26,17 +27,6 @@ class Timer extends Component{
         this.handleFinish=this.handleFinish.bind(this)
        this.handleEndTime=this.handleEndTime.bind(this)
     }
-    // formatTime(time){
-    //     if(time > 59) this.setState({
-    //         format: "m",
-    //         timeDisplay: Math.floor(time/60)
-    //     })
-    //     if(time > 3599)
-    //     if(time > 59) this.setState({
-    //         format: "h"
-    //     })
-    // }
-
     startTimer(){
         this.setState({
             isOn: true
@@ -44,6 +34,11 @@ class Timer extends Component{
         this.timer = setInterval( () => this.setState({
             time: this.state.time + 1
         }), 1000)
+        let noBlur = document.getElementsByClassName('no-blur')
+        for(let i = 0; i < noBlur.length; i++) {
+            noBlur[i].className = 'no-blur blur'
+            console.log(noBlur)
+        }
         console.log("start")
     }
 
@@ -52,6 +47,10 @@ class Timer extends Component{
         this.setState({ isOn: false})
         clearInterval(this.timer)
         console.log("stop")
+        let noBlur = document.getElementsByClassName('no-blur')
+        for(let i = 0; i < noBlur.length; i++) {
+            noBlur[i].className = 'no-blur'
+        }
     }
 
     resetTimer (){
@@ -84,24 +83,22 @@ class Timer extends Component{
 
     render(){
         let start = (this.state.time === 0 && !this.state.isOn) ?
-            <button id="startButton" onClick={this.startTimer}>start</button> :
+        <i className="far fa-play-circle" onClick={this.startTimer}></i> :
             null
 
-        let stop = (this.state.isOn) ?
-            <button onClick={this.stopTimer} >stop</button> :
-            null
+        let stop = (this.state.isOn) ? <i class="far fa-stop-circle" onClick={this.stopTimer}
+            ></i>: null
         
         let reset = (this.state.time !== 0 && !this.state.isOn) ?
-            <button onClick={this.resetTimer}>reset</button> :
-            null
+            <i class="fas fa-ban" onClick={this.resetTimer}
+             ></i> : null
         
         let resume = (this.state.time !== 0 && !this.state.isOn && this.state.time < this.state.setTime) ?
-            <button onClick={this.startTimer} >resume</button> :
+            <i className="far fa-play-circle" onClick={this.startTimer}></i> :
             null
         
         let finish  = (this.state.time !== 0 && !this.state.isOn) ?
-            <button onClick={this.handleFinish} >Finish</button> :
-            null
+            <i class="far fa-check-circle" onClick={this.handleFinish}></i> : null
         
         if(this.state.time >= this.state.setTime && this.state.isOn)
         {
@@ -109,18 +106,18 @@ class Timer extends Component{
         }
       
         return (
-            <div>
-                <i class="far fa-clock"></i>
-                <h3>timer: {moment.duration(this.state.time, "seconds").format("h:mm:ss")}</h3>
-                {start}
-                {resume}
-                {stop}
-                {reset}
-                <br />
-                {finish}
+            <div className="timer">
+                <h3 id="time">{moment.duration(this.state.time, "seconds").format("h:mm:ss")}</h3>
+                <div className="buttons">
+                    <div>
+                        {start}
+                        {resume}
+                        {stop}
+                        {reset}
+                        {finish}
+                    </div>
+                </div>
                 <audio src={this.state.ding} autoPlay />
-                <br />
-                <br />
                 <select onChange={this.handleSetTime} >
                     <option>set time</option>
                     <option value={5}>5 seconds</option>

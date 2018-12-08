@@ -1,3 +1,89 @@
 .Main {
-    background: url("131-350x250.jpg");
+    background: url("../../40-350x250.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    /* align-items: center; */
+    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Montserrat Alternates', sans-serif; */
+    /* font-family: 'Kurale', serif; */
+    /* font-family: 'Playfair Display', serif; */
+    /* font-family: 'Fira Sans', sans-serif; */
+}
+
+.Main .blur {
+    z-index: 0;
+    filter: blur(3px);
+    -webkit-filter: blur(20px);
+}
+
+.timer {
+    z-index: 10;
+    height: 300px;
+    width: 300px;
+    /* width: 300px; */
+    border: 2px black solid;
+    border-radius: 50%;
+    display: flex;
+    align-self: center;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+#time {
+    font-size: 75px;
+    display: flex;
+    align-self: center
+    
+}
+.greeting {
+
+    font-size: 45px;
+    height: 50px;
+    width: 100%;
+    border: 1px solid black;
+    font-family: 'Montserrat Alternates', sans-serif;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding-left: 50px;   
+    margin-top: 50px; 
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+}
+
+
+
+/* .far fa-play-circle { */
+
+
+@media (max-width: 600px){
+    .greeting {
+        font-size: 24px;
+        padding-left: 10px;
+    }
+    .timer {
+        height: 150px;
+        width: 150px;
+    }
+    #time {
+        font-size: 30px;
+
+    }
 }

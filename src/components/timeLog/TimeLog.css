@@ -1,0 +1,13 @@
+.timeContainer {
+    border: 1px solid black;
+    border-collapse: collapse;
+    display: flex;
+    overflow: auto;
+    margin-left: 10px;
+    align-items: center;
+    height: 50px;
+    padding-left: 10px;
+    width: 300px;
+    
+
+}

@@ -5,6 +5,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { userLoggedIn } from '../../redux/reducer';
 import {Redirect} from 'react-router-dom'
+import './Login.css'
 // import Header from './components/Header/Header'
 
 
@@ -28,6 +29,7 @@ class Login extends Component {
   }
 
   handleClick(){
+    if(this.state.email && this.state.password) {
     axios.post('/auth/login', this.state).then(response => {
       console.log('login', response.data)
       let user = response.data
@@ -38,27 +40,37 @@ class Login extends Component {
         error: 'error logging in'
       })
     })
+  } else {
+    this.setState({
+      error: 'please type email and password'
+    })
+  }
    }
 
 
   render() {
-    console.log('asdfsf', this.props.isAuthenticated)
     return (this.props.isAuthenticated ?
     
       <Redirect to="/main" /> :
-      <div className="login">
-        <h1>Login</h1>
-        <input onChange={(e) => this.handleEmailInput(e.target.value)} type="text" placeholder="email"></input>
-          <br />
-        <input onChange={(e) => this.handlePasswordInput(e.target.value)} type="password" placeholder="password"></input>
-          <br />
-        <button onClick={this.handleClick}>Login</button>
-          <br />
-          <span>New user? </span>
-          <button> <Link className="regButton" to="/register">Create Account</Link></button>
-         <br />
-        {this.state.error}
-      </div>
+        <div>
+          <div className="section parallax bg1">
+            <div id="title">Balance</div>
+            <p id="quote">Quiet the mind, and the soul will speak. </p><span id="author">- Ma Jaya Sati Bhagavati</span>
+          </div>
+          <div className="section static" >
+            <body className="loginContainer">
+              <h1>Login to continue</h1>
+              <input onChange={(e) => this.handleEmailInput(e.target.value)} type="text" placeholder="email"></input>               
+              <input onChange={(e) => this.handlePasswordInput(e.target.value)} type="password" placeholder="password"></input>
+              <button onClick={this.handleClick}>Login</button>
+                <span>New user? </span>
+                <button> <Link className="regButton" to="/register">Create Account</Link></button>
+              {this.state.error}
+            </body>
+          </div>
+          <div className="section parallax bg2"></div>
+        </div>  
+
     );
   }
 }
