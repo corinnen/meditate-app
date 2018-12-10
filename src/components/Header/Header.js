@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {userLoggedOut} from '../../redux/reducer'
 import './Header.css'
 
+
 class Header extends Component {
 
     logout = () => {

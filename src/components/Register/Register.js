@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { userLoggedIn } from '../../redux/reducer';
 import {Redirect} from 'react-router-dom'
 import {Link} from 'react-router-dom'
-
+import './Register.css'
+import flower from './blueflower.jpg'
 
 class Register extends Component {
   constructor(){
@@ -46,31 +47,37 @@ class Register extends Component {
   render() {
     return ( this.props.isAuthenticated ?
       <Redirect to="/main" /> :
-      <div >
-        <h1>Register:</h1>
-        <span>Name: &nbsp; &nbsp; &nbsp; </span>
-        <input 
-          onChange={(e) => {this.handleNameInput(e.target.value)}} 
-            type="text" 
-            placeholder="name"></input>
-        <br />
-        <span>Email: &nbsp; &nbsp; &nbsp; </span>
-        <input
-           onChange={(e) => {this.handleEmailInput(e.target.value)}} 
-            type="text"  
-            placeholder="email"></input>
-        <br />
-        <span>Password: &nbsp; </span>
-        <input
-           onChange={((e) => this.handlePasswordInput(e.target.value))} 
-           type="password" 
-           placeholder="password"></input>
-        <br />
-        <button onClick={this.handleClick}>Submit</button>
-        <br />
-        <div>Or log in <Link to="/">here</Link></div> 
+      <div className= "register">
+        <div className= "regContainer" >
+        <div className="flowerBox">
+            <img className="flower" src={flower}/>
+            <div className="centered">Register</div>
+        </div>  
+          <div className="info">
+             <div className="inputBox">
+                <input className="input"
+                  onChange={(e) => {this.handleNameInput(e.target.value)}} 
+                    type="text" 
+                    placeholder="enter first name"></input>
+                <br />
+                <input className="input"
+                  onChange={(e) => {this.handleEmailInput(e.target.value)}} 
+                    type="text"  
+                    placeholder="enter email"></input>
+                <br />
+                <input className="input"
+                  onChange={((e) => this.handlePasswordInput(e.target.value))} 
+                  type="password" 
+                  placeholder="enter password"></input>
+              </div>
+              <br />
+              <button className="submit" onClick={this.handleClick}>Submit</button>
+              <br />
+              <div className="here">Or log in <span className="link"><Link to="/">here</Link></span></div>
 
-        {this.state.error}
+              {this.state.error}
+          </div>
+        </div>
       </div>
     );
   }

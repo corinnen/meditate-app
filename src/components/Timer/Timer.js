@@ -25,7 +25,7 @@ class Timer extends Component{
         this.resetTimer=this.resetTimer.bind(this)
         this.handleSetTime=this.handleSetTime.bind(this)
         this.handleFinish=this.handleFinish.bind(this)
-       this.handleEndTime=this.handleEndTime.bind(this)
+        this.handleEndTime=this.handleEndTime.bind(this)
     }
     startTimer(){
         this.setState({
@@ -98,7 +98,21 @@ class Timer extends Component{
             null
         
         let finish  = (this.state.time !== 0 && !this.state.isOn) ?
-            <i class="far fa-check-circle" onClick={this.handleFinish}></i> : null
+            <button className="finish" onClick={this.handleFinish}>Finish</button>: null
+        
+        let select = (this.state.time === 0 && !this.state.isOn) ? 
+            <select className="select" onChange={this.handleSetTime} >
+                <option>Set time</option>
+                <option value={8}>8 seconds</option>
+                <option value={300}>5 minutes</option>
+                <option value={600} >10 minutes</option>
+                <option value={900} >15 minutes</option>
+                <option value={1200} >20 minutes</option>
+                <option value={1800} >30 minutes</option>
+                <option value={2400} >40 minutes</option>
+                <option value={3000} >50 minutes</option>
+                <option value={3600} >60 minutes</option>
+             </select> : null
         
         if(this.state.time >= this.state.setTime && this.state.isOn)
         {
@@ -108,30 +122,17 @@ class Timer extends Component{
         return (
             <div className="timer">
                 <h3 id="time">{moment.duration(this.state.time, "seconds").format("h:mm:ss")}</h3>
-                <div className="buttons">
-                    <div>
-                        {start}
-                        {resume}
-                        {stop}
-                        {reset}
-                        {finish}
+                <div >
+                    <div className="parent">
+                        <span className="button">{start}</span>
+                        <span className="button">{resume}</span>
+                        <span className="button">{stop}</span>
+                        <span className="button">{reset}</span>
                     </div>
+                    <span className="finish">{finish}</span>
                 </div>
                 <audio src={this.state.ding} autoPlay />
-                <select onChange={this.handleSetTime} >
-                    <option>set time</option>
-                    <option value={5}>5 seconds</option>
-                    <option value={300}>5 minutes</option>
-                    <option value={600} >10 minutes</option>
-                    <option value={900} >15 minutes</option>
-                    <option value={1200} >20 minutes</option>
-                    <option value={1800} >30 minutes</option>
-                    <option value={2400} >40 minutes</option>
-                    <option value={3000} >50 minutes</option>
-                    <option value={3600} >60 minutes</option>
-
-                </select>
-                    
+                <div>{select}</div>       
             </div>
     );
     }

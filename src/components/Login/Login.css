@@ -1,27 +1,4 @@
-/* .regButton {
-    text-decoration: none;
 
-} */
-/* .login {
-        text-align: center;
-        
-        background: url("../../jared-rice-388260-unsplash.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        height: 100vh;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        
-} */
-/* .wrapper {
-    height: 100vh;
-} */
-.section {
-    position: relative;
-    width: 100%;
-}
 
 .parallax {
     background-image: url("../../jared-rice-388260-unsplash.jpg");
@@ -70,7 +47,7 @@
     padding-bottom: 75px;
 }
 .static {
-    height: 500px;
+    height: 60vh;
     background-color: rgb( 230, 228, 229);
     display: flex;
     justify-content: center;
@@ -89,18 +66,40 @@
 .loginContainer{
     display: flex;
     height: 40vh;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    align-content: space-around;
+    /* align-content: space-around; */
     width: 30vh;
-    font-family: 'Fira Sans Condensed', sans-serif;
-    /* font-family: 'Merienda', cursive; */
-    /* font-family: 'Montserrat Alternates', sans-serif; */
-    /* font-family: 'El Messiri', sans-serif; */
-    /* font-family: 'Arima Madurai', cursive; */
-    /* font-family: 'Kurale', serif;  */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
 
+}
 
+.loginButton {
+    border: 1px solid rgb(85, 84, 84);
+    background-color: rgb(85, 84, 84);
+    color: white;
+    box-shadow: 2px 2px 2px gray;
+    height: 20px;
+    width: 129px;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+.new {
+    font-size: 12px;
+    text-decoration: none;
+}
+.regButton {
+    text-decoration: none;
+    font-size: 12px;
+    color: rgb(7, 14, 36);
+}
+.regButton:hover {
+    font-size: 14px;
+}
+.loginButton:hover {
+    font-size: 14px;
 }

@@ -1,0 +1,120 @@
+.register {
+    background-color: rgb( 230, 228, 229);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.regContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+    width: 30vw;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    margin-top: 10vh;
+    overflow: hidden;
+    padding-bottom: 5vh;
+
+
+}
+.flower {
+    height: 25vh;
+    width: 30vw;
+    opacity: .7;
+}
+.flowerBox {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 24px;
+    height: 25vh;
+    width: 30vw;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.info {
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+
+
+}
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+
+
+}
+.input {
+    border: .5px solid gray;
+    border-radius: 3px;
+    height: 20px;
+    width: 200px;
+    text-indent: 2px;
+ 
+}
+.submit {
+    margin-bottom: 2vh;
+    border: 1px solid gray;
+    border-radius: 3px;
+    height: 20px;
+    width: 200px;
+    background-color: gray;
+    color: white;
+    box-shadow: 2px 2px 2px gray;
+
+}
+.here {
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
+.link {
+    text-decoration: none;
+    color: black;
+}
+.link:hover {
+    color: rgb(32, 32, 32);
+}
+@media (max-width: 700px){
+    .flowerBox {
+        font-size: 20px;
+    }
+    .input {
+        height: 16px;
+        width: 100px;
+    }
+    .submit {
+        height: 16px;
+        width: 100px;
+    }
+    .here {
+        font-size: 10px;
+    }
+}
+@media (max-width: 370px){
+    .flowerBox {
+        font-size: 12px;
+    }
+    .input {
+        font-size: 8px;
+        height: 12px;
+        width: 75px;
+    }
+    .submit {
+        height: 12px;
+        width: 75px;
+    }
+
+}

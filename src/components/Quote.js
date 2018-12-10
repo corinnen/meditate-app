@@ -22,9 +22,9 @@ class Quote extends Component {
     render(){
         let { quote, author } = this.state
         return(
-            <div>
+            <div className="quote">
                 <div>{quote}</div>
-                <div>{author}</div>
+                <div className="author">{author}</div>
             </div>
         )
     }

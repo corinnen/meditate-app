@@ -1,17 +1,25 @@
-.Main {
-    background: url("../../40-350x250.jpg");
+.background {
+    background: url("../../flower.jpg");
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     height: 100%;
-    overflow-x: hidden;
     max-width: 100%;
     margin: 0;
     padding: 0;
     position: relative; 
+    color: rgb(101, 97, 85);
+    
+}
+
+
+.Main {
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
+    z-index: 0;
+    /* border: 1px solid black; */
     /* align-items: center; */
     font-family: 'Poppins', sans-serif;
     /* font-family: 'Montserrat Alternates', sans-serif; */
@@ -27,11 +35,11 @@
 }
 
 .timer {
+    position: relative;
     z-index: 10;
-    height: 300px;
-    width: 300px;
-    /* width: 300px; */
-    border: 2px black solid;
+    height: 400px;
+    width: 400px;
+    border: 8px white solid;
     border-radius: 50%;
     display: flex;
     align-self: center;
@@ -41,49 +49,244 @@
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     margin-bottom: 20px;
+    color: white;
+
 }
 #time {
-    font-size: 75px;
-    display: flex;
-    align-self: center
+    font-size: 90px;
+    padding-top: 40px;
+    padding-bottom: 10px;
     
 }
+.parent {
+    display: flex;
+    width: 112px;
+    justify-content: space-around;
+    cursor: pointer;
+    font-size: 50px;
+    
+}
+
 .greeting {
 
     font-size: 45px;
-    height: 50px;
-    width: 100%;
-    border: 1px solid black;
+    font-weight: 600;
+    height: 20vh;
+    width: 50vw;
+    /* border: 1px solid black; */
     font-family: 'Montserrat Alternates', sans-serif;
     display: flex;
-    /* flex-direction: column; */
     flex-wrap: wrap;
     align-items: flex-start;
     padding-left: 50px;   
-    margin-top: 50px; 
-    margin-bottom: 20px;
+    padding-top: 2vh;
+    padding-bottom: 5vh;
+
+}
+.finish {
+    font-size: 16px;
+    height: 20px;
+    width: 60px;
+    background-color: rgb(101, 97, 85);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgb(101, 97, 85);
+    cursor: pointer;
+    margin-top: 10px;
+
 }
 
-.buttons {
+.select {
+    font-size: 16px;
+    height: 22px;
+    width: 100px;
+    background-color: rgb(101, 97, 85);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgb(101, 97, 85);
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+
+.Wrapper {
+    height: 20vh;
+    width: 35vw;
+    /* border: 8px solid rgb(218, 155, 154)	; */
+    overflow: auto;
+    border-radius: 10px;
+    background-color:rgb(0, 4, 3);
+    opacity: 0.7;
+    color: rgb(254, 239, 234);
+    box-shadow: 3px 2px 5px black;    
+}
+
+.bothBoxes {
     display: flex;
+    /* border: 1px solid black; */
+    flex-direction: wrap;
+    justify-content: space-around;
+    height: 30vh;
+    padding-top: 5vh;
+
+}
+.box1 {
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-self: baseline;
+    padding-bottom: 8px;
+    margin-left: -20px;
+
+    
+}
+.box2 {
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-self: baseline;
+    padding-bottom: 8px;
+    margin-left: -20px;
+}
+
+.youtube {
+    height: 20vh;
+    width: 35vw;
+    /* border: 2px solid rgb(254, 239, 234); */
+    box-shadow: 3px 2px 5px black;
+    opacity: .9;
+
+}
+.quote {
+    color: rgb(254, 239, 234);
+    font-size:20px;
+    align-self: center;
+    padding-bottom: 10px;
+    /* border: 1px solid black; */
+    height: 40vh;
+    padding-top: 5vh;
+}
+.author {
+    font-size: 14px;
+    padding-top: 10px
 }
 
 
 
-/* .far fa-play-circle { */
+
+
+
+@media (max-width: 800px) {
+    .greeting {
+        font-size: 30px;
+        padding-left: 10px;
+        /* margin-bottom: 5px; */
+        height: 10vh;
+        padding-top: 7vh;
+    }
+    .box1 {
+        font-size: 24px;
+    }
+    .box2 {
+        font-size: 24px;
+    }
+}
 
 
 @media (max-width: 600px){
     .greeting {
         font-size: 24px;
         padding-left: 10px;
+        /* margin-bottom: 5px; */
+        /* height: 10vh; */
+        padding-top: 2vh;
     }
     .timer {
         height: 150px;
         width: 150px;
-    }
-    #time {
-        font-size: 30px;
+        border: 6px white solid;
 
     }
+    #time {
+        font-size: 50px;
+        padding-bottom: 0px;
+        padding-top: 20px;
+    }
+    .parent {
+        width: 50px;
+        font-size: 15px;
+    }
+    .select {
+        font-size: 8px;
+        height: 10px;
+        width: 60px;
+        margin-top: -2px;
+    }
+    .finish {
+        font-size: 8px;
+        height: 10px;
+        width: 50px;
+        margin-top: 2px;
+    }
+    .box1 {
+        font-size: 18px;
+    }
+    .box2 {
+        font-size: 18px;
+    }
+    .quote {
+        font-size: 18px;
+    }
 }
+ @media (max-width: 400px) {
+    .greeting {
+        width: 100vw;
+        /* padding-top: 1vh; */
+        font-size: 18px;
+        /* padding-bottom: 3vh; */
+
+
+    }
+    .box1 {
+        font-size: 14px;
+    }
+    .box2 {
+        font-size: 14px;
+    }
+    .select {
+        font-size: 6px;
+        height: 8px;
+        width: 50px;
+        margin-top: -1px;
+    }
+    .finish {
+        font-size: 6px;
+        height: 8px;
+        width: 40px;
+        margin-top: 1px;
+    }
+    .quote {
+        font-size: 14px;
+    }
+ }
+
+ @media (min-width: 1000px) {
+    .quote {
+        font-size:35px;
+        padding-top: 5vh;
+
+
+    }
+    .greeting {
+        font-size: 60px;
+    }
+    .bothBoxes {
+        padding-top: 5vh;
+
+    }
+   
+
+ }

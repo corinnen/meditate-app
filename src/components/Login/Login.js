@@ -60,11 +60,15 @@ class Login extends Component {
           <div className="section static" >
             <body className="loginContainer">
               <h1>Login to continue</h1>
-              <input onChange={(e) => this.handleEmailInput(e.target.value)} type="text" placeholder="email"></input>               
-              <input onChange={(e) => this.handlePasswordInput(e.target.value)} type="password" placeholder="password"></input>
-              <button onClick={this.handleClick}>Login</button>
-                <span>New user? </span>
-                <button> <Link className="regButton" to="/register">Create Account</Link></button>
+              <br/>
+              <input className="inputBox" onChange={(e) => this.handleEmailInput(e.target.value)} type="text" placeholder="email"></input>
+              <br/>               
+              <input className="inputBox" onChange={(e) => this.handlePasswordInput(e.target.value)} type="password" placeholder="password"></input> 
+              <br/>
+              <button className="loginButton" onClick={this.handleClick}>Login</button>
+              <br/>
+                <span className="new">New user? </span>
+               <Link className="regButton" to="/register">Create an account</Link>
               {this.state.error}
             </body>
           </div>

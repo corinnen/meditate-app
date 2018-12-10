@@ -13,6 +13,7 @@ import Quote from '../Quote';
 
 
 
+
 class Main extends Component{
     constructor(){
         super()
@@ -69,7 +70,7 @@ class Main extends Component{
         })
     
     return (
-        <div>
+        <div className="background">
             <Header />
             <div className="Main">
                 <div className="no-blur">  
@@ -78,13 +79,23 @@ class Main extends Component{
                 </div>    
                 <Timer />
                 <div className="no-blur"> 
-                    <div>{displayTime}
-                    
+                    <div className="bothBoxes">
+                        <div>
+                            <div className="box1">My Meditations</div>
+                            <div className="Wrapper">
+                                {displayTime}
+                            </div>
+                        </div>
+                        <div>
+                            <div className="box2">Soothing Sounds</div>
+                            <iframe className="youtube" title="playlist" src="https://www.youtube.com/embed/y8NDRElMWwk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                        </div>
                     </div>
-                    <div>
-                        <Quote />
-                    </div>
-                    <iframe title="playlist" width="200" height="100" src="https://www.youtube.com/embed/y8NDRElMWwk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                        <div>
+                            <div>
+                                <Quote />
+                            </div>
+                        </div>
                 </div>  
             </div>
         </div>
