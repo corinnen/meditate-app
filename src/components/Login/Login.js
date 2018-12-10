@@ -61,15 +61,15 @@ class Login extends Component {
             <body className="loginContainer">
               <h1>Login to continue</h1>
               <br/>
-              <input className="inputBox" onChange={(e) => this.handleEmailInput(e.target.value)} type="text" placeholder="email"></input>
+              <input className="loginInput" onChange={(e) => this.handleEmailInput(e.target.value)} type="text" placeholder="email"></input>
               <br/>               
-              <input className="inputBox" onChange={(e) => this.handlePasswordInput(e.target.value)} type="password" placeholder="password"></input> 
+              <input className="loginInput" onChange={(e) => this.handlePasswordInput(e.target.value)} type="password" placeholder="password"></input> 
               <br/>
               <button className="loginButton" onClick={this.handleClick}>Login</button>
               <br/>
                 <span className="new">New user? </span>
                <Link className="regButton" to="/register">Create an account</Link>
-              {this.state.error}
+                <div className="error" >{this.state.error}</div>
             </body>
           </div>
           <div className="section parallax bg2"></div>

@@ -98,7 +98,7 @@ class Timer extends Component{
             null
         
         let finish  = (this.state.time !== 0 && !this.state.isOn) ?
-            <button className="finish" onClick={this.handleFinish}>Finish</button>: null
+            <button className="finish" onClick={this.handleFinish}>done</button>: null
         
         let select = (this.state.time === 0 && !this.state.isOn) ? 
             <select className="select" onChange={this.handleSetTime} >
@@ -129,7 +129,7 @@ class Timer extends Component{
                         <span className="button">{stop}</span>
                         <span className="button">{reset}</span>
                     </div>
-                    <span className="finish">{finish}</span>
+                    <span>{finish}</span>
                 </div>
                 <audio src={this.state.ding} autoPlay />
                 <div>{select}</div>       

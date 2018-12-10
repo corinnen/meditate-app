@@ -39,7 +39,7 @@ class Register extends Component {
      this.props.userLoggedIn(user)
    }).catch(err => {
      this.setState({
-       error: 'email already taken'
+       error: 'cannot register user'
       })
    })
   }
@@ -74,8 +74,7 @@ class Register extends Component {
               <button className="submit" onClick={this.handleClick}>Submit</button>
               <br />
               <div className="here">Or log in <span className="link"><Link to="/">here</Link></span></div>
-
-              {this.state.error}
+              <div className="error">{this.state.error}</div>
           </div>
         </div>
       </div>

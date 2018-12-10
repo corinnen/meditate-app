@@ -62,8 +62,11 @@
     display: flex;
     width: 112px;
     justify-content: space-around;
+    /* position: absolute; */
     cursor: pointer;
     font-size: 50px;
+    /* border: 1px solid black; */
+    cursor: pointer;
     
 }
 
@@ -79,35 +82,49 @@
     flex-wrap: wrap;
     align-items: flex-start;
     padding-left: 50px;   
-    padding-top: 2vh;
+    /* padding-top: 2vh; */
     padding-bottom: 5vh;
 
 }
 .finish {
     font-size: 16px;
-    height: 20px;
-    width: 60px;
+    height: 4vh;
+    width: 112px;
     background-color: rgb(101, 97, 85);
     color: white;
     border: none;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgb(101, 97, 85);
+    border-radius: 2px;
     cursor: pointer;
     margin-top: 10px;
+    position: absolute;
+    left: 36%;
+    right: 50%;
+    text-transform: uppercase;
+    cursor: pointer;
 
 }
+.finish:hover {
+    box-shadow: 2px 2px 2px rgb(101, 97, 85);
 
+}
 .select {
-    font-size: 16px;
-    height: 22px;
-    width: 100px;
+    font-size: 14px;
+    height: 4vh;
+    width: 112px;
     background-color: rgb(101, 97, 85);
     color: white;
     border: none;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgb(101, 97, 85);
+    border-radius: 2px;
     cursor: pointer;
     margin-top: 10px;
+    position: absolute;
+    left: 36%;
+    right: 50%;
+    text-transform: uppercase;
+}
+.select:hover {
+    box-shadow: 2px 2px 2px rgb(101, 97, 85);
+
 }
 
 
@@ -139,7 +156,15 @@
     display: flex;
     align-self: baseline;
     padding-bottom: 8px;
-    margin-left: -20px;
+    /* margin-left: -20px; */
+    background-color:white;
+    opacity: .7;
+    text-indent: .5vw;
+    width: 25vw;
+    height: 5vh;
+    padding-top: 1vh;
+    border-radius: 3px;
+    margin-bottom: .5vh;    
 
     
 }
@@ -149,7 +174,15 @@
     display: flex;
     align-self: baseline;
     padding-bottom: 8px;
-    margin-left: -20px;
+    /* margin-left: -20px; */
+    background-color:white;
+    opacity: .7;
+    text-indent: .5vw;
+    width: 25vw;
+    height: 5vh;
+    padding-top: 1vh;
+    border-radius: 3px;
+    margin-bottom: .5vh;    
 }
 
 .youtube {
@@ -175,7 +208,11 @@
 }
 
 
-
+@media (max-width: 1000px) {
+    .box1 {
+        font-size: 24px;
+    }
+}
 
 
 
@@ -185,24 +222,25 @@
         padding-left: 10px;
         /* margin-bottom: 5px; */
         height: 10vh;
-        padding-top: 7vh;
     }
     .box1 {
-        font-size: 24px;
+        font-size: 22px;
+        width: 24vh;
     }
     .box2 {
-        font-size: 24px;
+        font-size: 22px;
+        width: 24vh;
     }
 }
 
 
 @media (max-width: 600px){
     .greeting {
-        font-size: 24px;
+        font-size: 27px;
         padding-left: 10px;
         /* margin-bottom: 5px; */
         /* height: 10vh; */
-        padding-top: 2vh;
+        /* padding-top: 2vh; */
     }
     .timer {
         height: 150px;
@@ -220,22 +258,27 @@
         font-size: 15px;
     }
     .select {
-        font-size: 8px;
-        height: 10px;
-        width: 60px;
-        margin-top: -2px;
+        font-size: 6px;
+        height: 1.5vh;
+        width: 50px;
+        margin-top: 2px;
+        left: 32%;
     }
     .finish {
         font-size: 8px;
-        height: 10px;
+        height: 1.5vh;
         width: 50px;
         margin-top: 2px;
+        left: 32%;
     }
     .box1 {
-        font-size: 18px;
+        font-size: 16px;
+        width: 17vh;
+        /* height: 5vh; */
     }
     .box2 {
-        font-size: 18px;
+        font-size: 16px;
+        width: 17vh;
     }
     .quote {
         font-size: 18px;
@@ -244,29 +287,33 @@
  @media (max-width: 400px) {
     .greeting {
         width: 100vw;
-        /* padding-top: 1vh; */
-        font-size: 18px;
-        /* padding-bottom: 3vh; */
+        font-size: 23px;
 
 
     }
     .box1 {
-        font-size: 14px;
+        font-size: 12px;
+        height: 4vh;
+        width: 13vh;
     }
     .box2 {
-        font-size: 14px;
+        font-size: 12px;
+        height: 4vh;
+        width: 13vh;
     }
     .select {
         font-size: 6px;
-        height: 8px;
+        height: 1vh;
         width: 50px;
-        margin-top: -1px;
+        left: 32%;
+        margin-top: 3px;
     }
     .finish {
         font-size: 6px;
-        height: 8px;
-        width: 40px;
-        margin-top: 1px;
+        height: 1vh;
+        width: 50px;
+        left: 32%;
+        margin-top: 3px;
     }
     .quote {
         font-size: 14px;
