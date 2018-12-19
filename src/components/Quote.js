@@ -13,7 +13,7 @@ class Quote extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://quotes.rest/qod.json?category=inspire').then(results => {
+        axios.get('https://quotes.rest/qod.json?category=inspire').then(results => {
             this.setState({quote: results.data.contents.quotes[0].quote, author: results.data.contents.quotes[0].author})
     
         })
