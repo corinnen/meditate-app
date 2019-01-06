@@ -4,7 +4,6 @@ import './Header.css'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {userLoggedOut} from '../../redux/reducer'
-import './Header.css'
 
 
 class Header extends Component {
@@ -19,17 +18,16 @@ class Header extends Component {
     render(){
         // console.log(this.props.isAuthenticated)
     return (this.props.isAuthenticated ?
-        <div className="navbar">
-            <span className="title">Balance</span>
+        <div>
+            {/* <span className="title">Balance</span> */}
             <div id="logout" onClick={this.logout} >Logout</div>
               
         </div>
-    :   <div className="navbar">
-            <span className="title">Balance</span>
-            <div>
-                {this.props.location.pathname !=="/" && <Link className="nav" to="/">Login</Link>}
-            </div>    
-        </div>
+    :   
+        <div>
+            {this.props.location.pathname !=="/" && <Link className="nav" to="/">Login</Link>}
+        </div>    
+       
     )
     }
     

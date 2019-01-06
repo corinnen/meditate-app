@@ -1,12 +1,14 @@
 const USER_LOGGED_IN = 'USER_LOGGED_IN'
 const USER_LOGGED_OUT = 'USER_LOGGED_OUT'
 const ADD_TIME = 'ADD_TIME'
+const SET_JOURNAL = 'SET_JOURNAL'
 
 const initialState = {
     isAuthenticated: false, 
     user: null, 
     timeLog: [],
-    name: ''
+    name: '',
+    journal: []
 }
 
 export default function reducer(state = initialState, action) {
@@ -17,6 +19,8 @@ export default function reducer(state = initialState, action) {
             return {...state, isAuthenticated: false, user: null}
         case ADD_TIME:
             return {...state, timeLog: action.payload}
+        case SET_JOURNAL:
+            return {...state, journal: action.payload}
 
         default: 
             return state;
@@ -39,5 +43,11 @@ export function addTime(time) {
     return {
         type: ADD_TIME,
         payload: time
+    }
+}
+export function setJournal(journal){
+    return {
+        type: SET_JOURNAL,
+        payload: journal
     }
 }

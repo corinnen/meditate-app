@@ -1,339 +1,188 @@
 .background {
-    background: url("../../flower.jpg");
+    background: url("../../rocksinsand.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100%;
-    max-width: 100%;
+    height: 100vh;
+    /* width: 100vw; */
     margin: 0;
     padding: 0;
-    position: relative; 
+    /* position: relative;  */
     color: rgb(101, 97, 85);
+    display: flex;
     
 }
-
-
-.Main {
-    margin-top: 5vh;
+.navContainer {
+    height: 100vh;
+    width: 30vw;
+    background-color: rgba(7, 6, 6, 0.76);
+    /* opacity: 0.7; */
+    color: rgb(254, 239, 234);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding: 5vh 1vw 60vh 1vw;
     z-index: 0;
-    /* border: 1px solid black; */
-    /* align-items: center; */
-    font-family: 'Poppins', sans-serif;
-    /* font-family: 'Montserrat Alternates', sans-serif; */
-    /* font-family: 'Kurale', serif; */
-    /* font-family: 'Playfair Display', serif; */
-    /* font-family: 'Fira Sans', sans-serif; */
+
+
+
+
 }
 
-.Main .blur {
+
+
+/* border: 1px solid black; */
+/* align-items: center; */
+/* font-family: 'Poppins', sans-serif; */
+/* font-family: 'Montserrat Alternates', sans-serif; */
+/* font-family: 'Kurale', serif; */
+/* font-family: 'Playfair Display', serif; */
+/* font-family: 'Fira Sans', sans-serif; */
+
+/* className of 'no-blur' blurs things out!!! */
+
+.blur {
     z-index: 0;
-    filter: blur(3px);
-    -webkit-filter: blur(20px);
+    filter: blur(20px);
+    -webkit-filter: blur(50px);
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    
+    
+}
+.dropbtn {
+    font-size: 11px;
+    height: 8vh;
+    width: 100%;
+    padding-top: 3.5vh;
+    text-decoration: none;
+    color: rgb(254, 239, 234);
+    cursor: pointer;
+    /* border: 1px solid black; */
+
+}
+.dropbtn:hover,
+.dropdown:hover,
+.dropdown:focus-within {
+    background-color: rgba(7, 6, 6, 0.877);
+    transition: all 1s ease;
+    border-radius: 2px;
+
+
+    /* border: 1px solid black; */
+
+}
+
+.wrapper {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    height: 10vh;
+    width: 35vw;
+    overflow: auto;
+    border-radius: 2px;
+    color: rgb(254, 239, 234);
+    box-shadow: px 1px 1px black;  
+    background-color: rgba(7, 6, 6, 0.877);
+}
+#youTube {
+    height: 20vh;
+    
+
+}
+.dropdown:hover .wrapper {
+    display: block;
+
+}
+.bodyContainer {
+    width: 70vw;
+    display: flex;
+    height: 100vh;
+    /* border: 1px solid black; */
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .timer {
-    position: relative;
     z-index: 10;
-    height: 400px;
-    width: 400px;
-    border: 8px white solid;
+    height: 125px;
+    width: 125px;
+    border: 6px white solid;
     border-radius: 50%;
     display: flex;
-    align-self: center;
     flex-direction: column; 
     justify-content: center;
     align-items: center;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 3vh;
+    margin-top: 20vh;
     color: white;
+    left: 15vw;
 
 }
 #time {
-    font-size: 90px;
-    padding-top: 40px;
-    padding-bottom: 10px;
+    font-size: 50px;
     
 }
 .parent {
     display: flex;
-    width: 112px;
-    justify-content: space-around;
-    /* position: absolute; */
+    width: 20vw;
+    justify-content: center;
     cursor: pointer;
-    font-size: 50px;
+    font-size: 15px;
+    margin-top: 1vh;
     /* border: 1px solid black; */
-    cursor: pointer;
+ 
     
 }
-
-.greeting {
-
-    font-size: 45px;
-    font-weight: 600;
-    height: 20vh;
-    width: 50vw;
+#resumeBtn {
+    padding-right: 2px;
+}
+#resetBtn {
+    padding-left: 2px;
+}
+.setTimeContainer {
     /* border: 1px solid black; */
-    font-family: 'Montserrat Alternates', sans-serif;
+    height: 5vh;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    padding-left: 50px;   
-    /* padding-top: 2vh; */
-    padding-bottom: 5vh;
+    justify-content: center;
 
 }
 .finish {
-    font-size: 16px;
-    height: 4vh;
-    width: 112px;
-    background-color: rgb(101, 97, 85);
+    font-size: 11px;
+    height: 3vh;
+    width: 23vw;
+    background-color: rgba(7, 6, 6, 0.76);
     color: white;
     border: none;
     border-radius: 2px;
     cursor: pointer;
-    margin-top: 10px;
-    position: absolute;
-    left: 36%;
-    right: 50%;
     text-transform: uppercase;
     cursor: pointer;
 
 }
 .finish:hover {
-    box-shadow: 2px 2px 2px rgb(101, 97, 85);
+    box-shadow: 0px 3px 8px 0px rgba(7, 6, 6, 0.76);
 
-}
-.select {
-    font-size: 14px;
-    height: 4vh;
-    width: 112px;
-    background-color: rgb(101, 97, 85);
-    color: white;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    margin-top: 10px;
-    position: absolute;
-    left: 36%;
-    right: 50%;
-    text-transform: uppercase;
-}
-.select:hover {
-    box-shadow: 2px 2px 2px rgb(101, 97, 85);
+    /* box-shadow: 0px 1px 1px 1px rgb(101, 97, 85); */
 
 }
 
-
-
-.Wrapper {
-    height: 20vh;
-    width: 35vw;
-    /* border: 8px solid rgb(218, 155, 154)	; */
-    overflow: auto;
-    border-radius: 10px;
-    background-color:rgb(0, 4, 3);
-    opacity: 0.7;
-    color: rgb(254, 239, 234);
-    box-shadow: 3px 2px 5px black;    
-}
-
-.bothBoxes {
-    display: flex;
-    /* border: 1px solid black; */
-    flex-direction: wrap;
-    justify-content: space-around;
-    height: 30vh;
-    padding-top: 5vh;
-
-}
-.box1 {
-    font-size: 30px;
-    font-weight: 600;
-    display: flex;
-    align-self: baseline;
-    padding-bottom: 8px;
-    /* margin-left: -20px; */
-    background-color:white;
-    opacity: .7;
-    text-indent: .5vw;
-    width: 25vw;
-    height: 5vh;
-    padding-top: 1vh;
-    border-radius: 3px;
-    margin-bottom: .5vh;    
-
-    
-}
-.box2 {
-    font-size: 30px;
-    font-weight: 600;
-    display: flex;
-    align-self: baseline;
-    padding-bottom: 8px;
-    /* margin-left: -20px; */
-    background-color:white;
-    opacity: .7;
-    text-indent: .5vw;
-    width: 32vw;
-    height: 5vh;
-    padding-top: 1vh;
-    border-radius: 3px;
-    margin-bottom: .5vh;    
-}
-
-.youtube {
-    height: 20vh;
-    width: 35vw;
-    /* border: 2px solid rgb(254, 239, 234); */
-    box-shadow: 3px 2px 5px black;
-    opacity: .9;
-
-}
 .quote {
     color: rgb(254, 239, 234);
-    font-size:20px;
-    align-self: center;
-    padding-bottom: 10px;
-    /* border: 1px solid black; */
-    height: 40vh;
+    font-size:16px;
     padding-top: 5vh;
 }
 .author {
-    font-size: 14px;
-    padding-top: 10px
+    font-size: 10px;
+    padding-top: 8px
 }
 
 
-@media (max-width: 1000px) {
-    .box1 {
-        font-size: 24px;
-    }
-}
-
-
-
-@media (max-width: 800px) {
-    .greeting {
-        font-size: 30px;
-        padding-left: 10px;
-        /* margin-bottom: 5px; */
-        height: 10vh;
-    }
-    .box1 {
-        font-size: 22px;
-        width: 28vh;
-    }
-    .box2 {
-        font-size: 22px;
-        width: 28vh;
-    }
-}
-
-
-@media (max-width: 600px){
-    .greeting {
-        font-size: 27px;
-        padding-left: 10px;
-        /* margin-bottom: 5px; */
-        /* height: 10vh; */
-        /* padding-top: 2vh; */
-    }
-    .timer {
-        height: 150px;
-        width: 150px;
-        border: 6px white solid;
-
-    }
-    #time {
-        font-size: 50px;
-        padding-bottom: 0px;
-        padding-top: 20px;
-    }
-    .parent {
-        width: 50px;
-        font-size: 15px;
-    }
-    .select {
-        font-size: 6px;
-        height: 4vh;
-        width: 50px;
-        margin-top: 2px;
-        left: 32%;
-    }
-    .finish {
-        font-size: 8px;
-        height: 4vh;
-        width: 50px;
-        margin-top: 2px;
-        left: 32%;
-    }
-    .box1 {
-        font-size: 16px;
-        width: 22vh;
-        /* height: 5vh; */
-    }
-    .box2 {
-        font-size: 16px;
-        width: 22vh;
-    }
-    .quote {
-        font-size: 18px;
-    }
-}
- @media (max-width: 400px) {
-    .greeting {
-        width: 100vw;
-        font-size: 23px;
-
-
-    }
-    .box1 {
-        font-size: 12px;
-        height: 4vh;
-        width: 16vh;
-    }
-    .box2 {
-        font-size: 12px;
-        height: 4vh;
-        width: 16vh;
-    }
-    .select {
-        font-size: 6px;
-        height: 3vh;
-        width: 50px;
-        left: 32%;
-        margin-top: 3px;
-    }
-    .finish {
-        font-size: 6px;
-        height: 3vh;
-        width: 50px;
-        left: 32%;
-        margin-top: 3px;
-    }
-    .quote {
-        font-size: 14px;
-    }
- }
-
- @media (min-width: 1000px) {
-    .quote {
-        font-size:35px;
-        padding-top: 5vh;
-
-
-    }
-    .greeting {
-        font-size: 60px;
-    }
-    .bothBoxes {
-        padding-top: 5vh;
-
-    }
-   
-
- }

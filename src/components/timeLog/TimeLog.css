@@ -3,16 +3,18 @@
     overflow: auto;
     margin-left: 10px;
     align-items: center;
-    height: 5vh;;
+    height: 4vh;;
     /* padding-left: 10px; */
     font-size: 18px;
     /* width: 70vw; */
 }
-
+.timeContainer:hover {
+    background-color: rgba(128, 128, 128, 0.767);
+}
 
 .fa-edit {
     cursor: pointer;
-    font-size: 12px;
+    font-size: 8px;
     color: rgb(163, 162, 157);
 
 }

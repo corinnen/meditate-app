@@ -4,7 +4,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { addTime } from '../../redux/reducer';
 import moment from 'moment'
-import momentDurationFormatSetup from 'moment-duration-format'
+import 'moment-duration-format'
 import ding from '../../Singing-bowl-sound.mp3'
 import '../Main/Main.css'
 
@@ -86,11 +86,11 @@ class Timer extends Component{
         <i className="far fa-play-circle" onClick={this.startTimer}></i> :
             null
 
-        let stop = (this.state.isOn) ? <i class="far fa-stop-circle" onClick={this.stopTimer}
+        let stop = (this.state.isOn) ? <i className="far fa-stop-circle" onClick={this.stopTimer}
             ></i>: null
         
         let reset = (this.state.time !== 0 && !this.state.isOn) ?
-            <i class="fas fa-ban" onClick={this.resetTimer}
+            <i className="fas fa-ban" onClick={this.resetTimer}
              ></i> : null
         
         let resume = (this.state.time !== 0 && !this.state.isOn && this.state.time < this.state.setTime) ?
@@ -98,10 +98,10 @@ class Timer extends Component{
             null
         
         let finish  = (this.state.time !== 0 && !this.state.isOn) ?
-            <button className="finish" onClick={this.handleFinish}>done</button>: null
+            <button className="finish" onClick={this.handleFinish}>finish</button>: null
         
         let select = (this.state.time === 0 && !this.state.isOn) ? 
-            <select className="select" onChange={this.handleSetTime} >
+            <select className="finish" onChange={this.handleSetTime} >
                 <option>Set time</option>
                 <option value={8}>8 seconds</option>
                 <option value={300}>5 minutes</option>
@@ -120,19 +120,21 @@ class Timer extends Component{
         }
       
         return (
-            <div className="timer">
-                <h3 id="time">{moment.duration(this.state.time, "seconds").format("h:mm:ss")}</h3>
-                <div >
+            <div>
+                <div className="timer">
+                    <h3 id="time">{moment.duration(this.state.time, "seconds").format("h:mm:ss")}</h3>
                     <div className="parent">
-                        <span className="button">{start}</span>
-                        <span className="button">{resume}</span>
-                        <span className="button">{stop}</span>
-                        <span className="button">{reset}</span>
+                        <span>{start}</span>
+                        <span id="resumeBtn">{resume}</span>
+                        <span>{stop}</span>
+                        <span id="resetBtn">{reset}</span>
                     </div>
-                    <span>{finish}</span>
                 </div>
-                <audio src={this.state.ding} autoPlay />
-                <div>{select}</div>       
+                <div className="setTimeContainer">
+                    <span>{finish}</span>
+                    <audio src={this.state.ding} autoPlay />
+                    <div>{select}</div>   
+                </div>    
             </div>
     );
     }

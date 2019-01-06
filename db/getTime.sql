@@ -1,2 +1,2 @@
 SELECT * FROM time_log
-WHERE Users_id = $1;
+WHERE users_id = $1;

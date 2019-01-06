@@ -1,5 +1,9 @@
 
+* {
+    scroll-behavior: smooth;
+    /* color: rgb(254, 239, 234); */
 
+}
 .parallax {
     background-image: url("../../jared-rice-388260-unsplash.jpg");
     height: 100vh;
@@ -21,27 +25,36 @@
 
     align-content: center;
 }
+.scroll {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-size: 20px; 
+        float: right;
+        top: 2vh;
+        right: 50px;
+        cursor: pointer;
+        position: absolute;
+        text-decoration: none;
+        color: rgb(254, 239, 234);
+    }
 #title {
     color: rgb(254, 239, 234);
     background-color:rgb(0, 4, 3);
     opacity: 0.7;
     align-content: center;
     height: 75px;
-    width: 325px;
+    width: 300px;
     padding-top:5px;
     font-family: 'Montserrat Alternates', sans-serif;
     letter-spacing: 2px;
-    /* margin-left: 25%;; */
     margin-bottom:200px;
     font-size: 65px;
-    transition: width 1.5s;
+    /* transition: width 1s; */
 
-    /* justify-content: center; */
 }
 #title:hover {
     font-size: 70px;
     height: 83px;
-    width: 330px;
+    width: 310px;
 }
 #quote {
     font-size: 30px;

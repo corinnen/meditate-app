@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import { userLoggedIn } from '../../redux/reducer';
 import {Redirect} from 'react-router-dom'
 import './Login.css'
-// import Header from './components/Header/Header'
 
 
 
@@ -54,11 +53,12 @@ class Login extends Component {
       <Redirect to="/main" /> :
         <div>
           <div className="section parallax bg1">
+            <a className="scroll" href="#scroll">Login</a>
             <div id="title">Balance</div>
             <p id="quote">Quiet the mind, and the soul will speak. </p><span id="author">- Ma Jaya Sati Bhagavati</span>
           </div>
-          <div className="section static" >
-            <body className="loginContainer">
+          <div className="section static" id="scroll">
+            <div className="loginContainer">
               <h1>Login to continue</h1>
               <br/>
               <input className="loginInput" onChange={(e) => this.handleEmailInput(e.target.value)} type="text" placeholder="email"></input>
@@ -70,7 +70,7 @@ class Login extends Component {
                 <span className="new">New user? </span>
                <Link className="regButton" to="/register">Create an account</Link>
                 <div className="error" >{this.state.error}</div>
-            </body>
+            </div>
           </div>
           <div className="section parallax bg2"></div>
         </div>  

@@ -2,13 +2,12 @@ import React, {Component} from 'react'
 import Timer from '../Timer/Timer'
 import { connect } from 'react-redux'
 import axios from 'axios'
-import {addTime, userLoggedIn} from '../../redux/reducer';
-import moment from 'moment';
-import momentDurationFormatSetup from 'moment-duration-format'
+import {addTime, userLoggedIn, setJournal} from '../../redux/reducer';
 import TimeLog from '../timeLog/TimeLog'
 import Header from '../Header/Header'
 import './Main.css'
 import Quote from '../Quote';
+import {Link} from 'react-router-dom'
 
 
 
@@ -34,6 +33,9 @@ class Main extends Component{
                 axios.get('/api/time').then(results => {
                     this.props.addTime(results.data)
                 })
+                axios.get('/api/journal').then(results=> {
+                      this.props.setJournal(results.data)
+                    })
                 this.setState({name:results.data.name})
                 this.props.userLoggedIn(results.data)
             }   
@@ -71,32 +73,27 @@ class Main extends Component{
     
     return (
         <div className="background">
-            <Header />
-            <div className="Main">
-                <div className="no-blur">  
+            <div className="no-blur">
+                <div className="navContainer">
                     <h1 className="greeting">{this.state.hours < 12 ? <span>Good Morning,</span> : this.state.hours > 17 ? <span>Good Evening, </span> : <span>Good Afternoon, </span> }
-                    &nbsp; {this.state.name}</h1>
-                </div>    
-                <Timer />
-                <div className="no-blur"> 
-                    <div className="bothBoxes">
-                        <div>
-                            <div className="box1">My Meditations</div>
-                            <div className="Wrapper">
-                                {displayTime}
-                            </div>
-                        </div>
-                        <div>
-                            <div className="box2">Soothing Sounds</div>
-                            <iframe className="youtube" title="playlist" src="https://www.youtube.com/embed/y8NDRElMWwk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-                        </div>
+                           {this.state.name}</h1>
+                    <Link className="dropbtn" to={'/journal'} >My Journal</Link>
+                
+                    <div className="dropdown">
+                        <div className="dropbtn">My Meditations</div>
+                        <div className= "wrapper">{displayTime.reverse()}</div>
+                        
                     </div>
-                        <div>
-                            <div>
-                                <Quote />
-                            </div>
-                        </div>
-                </div>  
+                    <div className="dropdown">
+                        <div className="dropbtn">Play Music</div>
+                        <iframe className="wrapper" id="youTube"title="playlist" src="https://www.youtube.com/embed/y8NDRElMWwk" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe> 
+                    </div>
+                </div>
+            </div>
+            <div className="bodyContainer">
+                <div className="no-blur"><Header /></div>
+                <Timer />
+                <div className="no-blur"><Quote /></div>
             </div>
         </div>
             
@@ -113,6 +110,6 @@ function MapStateToProps(state) {
 
 
 
-export default connect (MapStateToProps, {addTime, userLoggedIn})(Main)
+export default connect (MapStateToProps, {addTime, userLoggedIn, setJournal})(Main)
 
         

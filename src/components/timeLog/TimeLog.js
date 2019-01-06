@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import moment from 'moment'
-// import momentDurationFormatSetup from 'moment-duration-format'
 import './TimeLog.css'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 class TimeLog extends Component {
     constructor(){
@@ -26,8 +27,15 @@ class TimeLog extends Component {
     }
 
     render () {
-        let {time} = this.props
-
+        let {time, journal} = this.props
+        let matchingDate = time.timestamp.split("T")[0]
+        let match
+        for(var i = 0; i<journal.length; i++){
+            let journalDate = journal[i].date.split("T")[0]
+            if(journalDate === matchingDate){
+                match = <Link to={'/journal'}>yes</Link>
+            }
+        }
         let date = new Date(time.timestamp)
         let timestamp = new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}).format(date)
         let timestamp2 = new Intl.DateTimeFormat('en-US', {hour: '2-digit', minute: '2-digit'}).format(date)
@@ -53,7 +61,9 @@ class TimeLog extends Component {
                         {timestamp} &nbsp; 
                         {timestamp2}&nbsp; | &nbsp;   
                         {moment.duration(time.length_of_time, "seconds").format("h[h]mm[m]ss[s] ")}  &nbsp; 
+
                        <i onClick={this.toggleEdit} className="far fa-edit"></i>
+                       {match}
                     </div>
 
                         )
@@ -63,6 +73,10 @@ class TimeLog extends Component {
         )
     }
 }
+function MapStateToProps(state){
+    let {journal} = state
+    return {journal}
+}
 
 
-export default TimeLog
+export default connect(MapStateToProps)(TimeLog)

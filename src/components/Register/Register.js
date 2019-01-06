@@ -50,7 +50,7 @@ class Register extends Component {
       <div className= "register">
         <div className= "regContainer" >
         <div className="flowerBox">
-            <img className="flower" src={flower}/>
+            <img className="flower" alt="" src={flower}/>
             <div className="centered">Register</div>
         </div>  
           <div className="info">
