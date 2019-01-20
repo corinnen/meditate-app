@@ -1,2 +1,200 @@
-can click link on homepage which will bring to a page that displays journal logs and the days' intentions
+.journal {
+    /* background-color: rgb(242, 242, 241); */
+    background-image: url('../../succulentbkgrnd.jpg');
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2vw;
+    overflow: auto;
+}
+.fa-arrow-left {
+    text-decoration: none;
+    color: lightsteelblue;
+    height: 5vh;
+    width: 10vw;
+    font-size: 3vw;
+    position: absolute;
+    left: 1vw;
+    top: 2vh;
+    cursor: pointer;
+}
 
+.journalEntryWrapper {
+    display:flex;
+    justify-content: center;
+    padding-top: 6vh;
+    width: 100vw;
+}
+
+.journalForm {
+    /* height: 100%; */
+    width: 80vw;
+    padding: 10px;
+    /* position: absolute; */
+}
+/* .journalForm button {
+    top: 38vh;
+    right: 20vw;
+    
+} */
+#intentions {
+    width: 58vw;
+    height: 3vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    background-color: rgba(255, 255, 255, 0.767);
+    color: rgb(16, 16, 49);
+    font-size: 1.5vw;
+    /* font-family: 'Kurale', serif; */
+    
+    font-family: 'Fira Sans', sans-serif;
+    border: none;
+    box-shadow: inset 0 0 5px #e9e8e8;
+}
+
+
+textarea {
+    width: 58vw;
+    height: 40vh;
+    background-image: url('../../sweetly.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: rgb(16, 16, 49);
+    font-size: 1.75vw;
+    border: none;
+    box-shadow: inset 0 0 5px #cfc9c9;
+}
+.positive-thought {
+    color: rgb(16, 16, 49);
+    font-size: 4vw;
+    letter-spacing: .2vw; 
+    font-weight: 600;
+    line-height: 6vw;
+    /* margin-bottom: 2vh; */
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    /* align-items: center; */
+    justify-content: center;
+    padding-right: 3vw;
+    width: 50vw;
+    height: 40vh;
+    padding-top: 6vh;
+    /* font-family: 'Fira Sans', sans-serif; */
+    font-family: 'Fira Sans', sans-serif;
+
+    /* font-family: 'Playfair Display', serif; */
+    
+}
+
+#white-word {
+    font-family: 'Kurale', serif;
+    color: lightsteelblue;
+    font-size: 5vw;
+    font-style: italic;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.897);
+
+}
+/* font-family: 'Montserrat Alternates', sans-serif; */
+.journalWrapper {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+#myJournal {
+    font-size: 5vw;
+    padding-top: 4vh;
+    color: rgb(16, 16, 49);
+    letter-spacing: .2vw; 
+    font-weight: 600;
+    line-height: 6vw;
+    text-align: left;
+    width: 70vw;
+        /* font-family: 'Kurale', serif; */
+
+}
+.allEntries {
+    background-color: rgba(255, 255, 255, 0.651);
+    width: 70vw;
+    display: flex;
+    /* align-items: baseline; */
+    flex-direction: column;
+    text-align: left;
+    padding-left: 5vw;
+    padding-right: 3vw;
+    padding-top: 2vh;
+    /* justify-content: baseline; */
+
+}
+#block-quote {
+    margin-top: 3vh;
+}
+#block-quote::before  {
+    content: '"';
+    font-size: 20vw;
+    float: left;
+    margin-left: -12vw;
+    font-family: 'Passion One', cursive;
+    color: lightsteelblue;
+    /* border: 1px solid black; */
+
+}
+#block-quote::after  {
+    content: '"';
+    font-size: 20vw;
+    margin-left: 58vw;
+    font-family: 'Passion One', cursive;
+    color: lightsteelblue;
+
+}
+/* #block-quote:nth-child(1) {
+    margin-top: -10vw;
+} */
+.date-content {
+    color: rgb(16, 16, 49);
+    font-size: 2vw;
+    line-height: 2vw;
+    padding-top: 3vh;
+
+}
+.title-content {
+    color: rgb(16, 16, 49);
+    font-size: 4vw;
+    letter-spacing: .2vw; 
+    font-weight: 600;
+    line-height: 6vw;
+}
+.journal-content {
+    line-height: 2.5vw;
+    padding-bottom: 1vh;
+
+}
+@media (min-width:400px) {
+    .positive-thought {
+        font-size: 3vw;
+    }
+}
+@media (min-width:900px) {
+    .positive-thought {
+        font-size: 2vw;
+        line-height: 4vw;
+    }
+    #white-word {
+        font-size: 4vw;
+    }
+    .journalEntryWrapper {
+        padding-top: 10vh;
+    }
+    #intentions {
+        height: 5vh;
+    }
+    textarea {
+        height: 50vh;
+    }
+    
+}

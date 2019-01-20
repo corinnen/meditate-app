@@ -49,7 +49,6 @@ class Main extends Component{
     }
 
     editTime = (id, length_of_time) => {
-        console.log(id, length_of_time)
         length_of_time=Number(length_of_time)
         axios.put(`/api/time/${id}`, {length_of_time}).then(results => {
             this.props.addTime(results.data)
@@ -63,7 +62,7 @@ class Main extends Component{
         let displayTime= this.props.timeLog.map((time, index) => {
             return (     
                     <TimeLog 
-                    key={index}
+                    key={time.id}
                     deleteTime={this.deleteTime}
                     editTime={this.editTime}
                     time={time}
@@ -76,12 +75,12 @@ class Main extends Component{
             <div className="no-blur">
                 <div className="navContainer">
                     <h1 className="greeting">{this.state.hours < 12 ? <span>Good Morning,</span> : this.state.hours > 17 ? <span>Good Evening, </span> : <span>Good Afternoon, </span> }
-                           {this.state.name}</h1>
-                    <Link className="dropbtn" to={'/journal'} >My Journal</Link>
+                           {' '}{this.state.name}</h1>
+                    <Link className="dropbtn" id="pushJournal" to={'/journal'} >Journal</Link>
                 
                     <div className="dropdown">
                         <div className="dropbtn">My Meditations</div>
-                        <div className= "wrapper">{displayTime.reverse()}</div>
+                        <div className= "wrapper">{displayTime}</div>
                         
                     </div>
                     <div className="dropdown">

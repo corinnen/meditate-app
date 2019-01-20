@@ -14,11 +14,9 @@ module.exports = {
 
            const salt = bcrypt.genSaltSync(10)
            const hash = bcrypt.hashSync(password, salt)
-           console.log(hash)
 
            let createdUserResponse = await db.createUser([name, email, hash])
            let createdUser = createdUserResponse[0]
-           console.log(createdUser)
 
            delete createdUser.password
            

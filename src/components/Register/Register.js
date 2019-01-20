@@ -34,7 +34,6 @@ class Register extends Component {
 
   handleClick(){
    axios.post('/auth/register', this.state).then(response => {
-    //  console.log(response)
      let user = response.data
      this.props.userLoggedIn(user)
    }).catch(err => {

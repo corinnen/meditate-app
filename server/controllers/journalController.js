@@ -21,7 +21,6 @@ module.exports = {
             const db = req.app.get('db')
             let {id} = req.session.user
             let entries = await db.getEntries(id)
-            console.log(entries)
             res.send(entries);
 
         } catch (error) {

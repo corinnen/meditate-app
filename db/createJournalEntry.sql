@@ -3,6 +3,7 @@ VALUES ($1, $2, $3, $4);
 
 SELECT *
 FROM journal 
-WHERE users_id = $3;
+WHERE users_id = $3
+order by id desc;
 
 

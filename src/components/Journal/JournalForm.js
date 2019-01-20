@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {setJournal} from '../../redux/reducer'
 import axios from 'axios'
+import './Journal.css'
 
 class JournalForm extends Component {
     constructor(){
@@ -32,8 +33,8 @@ handleClick = () => {
     render(){
         return(
             <div>
-                <span>Right now, I feel</span><input name="title" type="text" value={this.state.title} onChange={this.handleChange}></input>
-                <textarea name="content" type="text" cols="30" rows="10" value={this.state.content} onChange={this.handleChange}></textarea>
+                <div><input id="intentions" placeholder="What are my intentions for today? "name="title" type="text" value={this.state.title} onChange={this.handleChange}></input></div> 
+                <textarea placeholder="Start writing here"name="content" type="text" value={this.state.content} onChange={this.handleChange}></textarea>
                 <button onClick={this.handleClick}>Save</button>
 
             </div>

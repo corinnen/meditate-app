@@ -37,16 +37,13 @@ class Timer extends Component{
         let noBlur = document.getElementsByClassName('no-blur')
         for(let i = 0; i < noBlur.length; i++) {
             noBlur[i].className = 'no-blur blur'
-            console.log(noBlur)
         }
-        console.log("start")
     }
 
 
     stopTimer(){
         this.setState({ isOn: false})
         clearInterval(this.timer)
-        console.log("stop")
         let noBlur = document.getElementsByClassName('no-blur')
         for(let i = 0; i < noBlur.length; i++) {
             noBlur[i].className = 'no-blur'
@@ -55,7 +52,6 @@ class Timer extends Component{
 
     resetTimer (){
         this.setState({time: 0 })
-        console.log("reset")
     }
 
     handleSetTime(e){
@@ -70,9 +66,7 @@ class Timer extends Component{
 
   
     handleFinish(){
-        console.log(this.state.time)
         axios.post('/api/time', {time: this.state.time}).then(results => {
-            console.log(results.data)
             this.props.addTime(results.data)
             this.setState({
                 time: 0,

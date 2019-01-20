@@ -39,7 +39,6 @@ module.exports = {
             let time = await db.deleteTime([id, userID])
             res.send(time)
         } catch (error) {
-            console.log(error) 
                 console.log('error deleting time', error)
                 res.status(500).send(error)
         }

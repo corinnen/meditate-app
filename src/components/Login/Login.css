@@ -34,7 +34,8 @@
         cursor: pointer;
         position: absolute;
         text-decoration: none;
-        color: rgb(254, 239, 234);
+        color: rgb(252, 248, 247);
+        font-weight: 600;
     }
 #title {
     color: rgb(254, 239, 234);

@@ -16,10 +16,8 @@ class Header extends Component {
     }
 
     render(){
-        // console.log(this.props.isAuthenticated)
     return (this.props.isAuthenticated ?
         <div>
-            {/* <span className="title">Balance</span> */}
             <div id="logout" onClick={this.logout} >Logout</div>
               
         </div>

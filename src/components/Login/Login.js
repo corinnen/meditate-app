@@ -30,11 +30,9 @@ class Login extends Component {
   handleClick(){
     if(this.state.email && this.state.password) {
     axios.post('/auth/login', this.state).then(response => {
-      console.log('login', response.data)
       let user = response.data
       this.props.userLoggedIn(user)
     }).catch(err => {
-     //  console.log(err.response)
       this.setState({
         error: 'error logging in'
       })

@@ -1,7 +1,7 @@
 delete from journal
-where id = $1;
+WHERE id = $1;
 
-select j.*, u.id as users_id
-from journal j
-join users u on u.id = j.users_id
-where u.id = $2;
+SELECT j.*, u.id AS users_id
+FROM journal j
+JOIN users u ON u.id = j.users_id
+WHERE u.id = $2;
